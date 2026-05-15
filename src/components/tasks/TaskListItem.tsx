@@ -19,7 +19,7 @@ export function TaskListItem(props: TaskListItemProps): JSX.Element {
   const isSelected = selectedTask?.id === task.id;
   const patient = useResource(task.for);
   const owner = useResource(task.owner);
-  const taskFrom = task?.authoredOn ? `from ${formatDate(task?.authoredOn)}` : '';
+  const taskFrom = task?.authoredOn ? `de ${formatDate(task?.authoredOn)}` : '';
   const taskUrl = getTaskUri(task);
 
   return (
@@ -40,10 +40,10 @@ export function TaskListItem(props: TaskListItemProps): JSX.Element {
             <StatusBadge status={task.status} variant="light" />
           </Group>
           <Stack gap={0} c="dimmed">
-            {task.restriction?.period && <Text fw={500}>Due {formatDate(task.restriction?.period?.end)}</Text>}
-            {patient?.resourceType === 'Patient' && <Text>For: {formatHumanName(patient.name?.[0])}</Text>}
+            {task.restriction?.period && <Text fw={500}>Vence {formatDate(task.restriction?.period?.end)}</Text>}
+            {patient?.resourceType === 'Patient' && <Text>Paciente: {formatHumanName(patient.name?.[0])}</Text>}
             {owner?.resourceType === 'Practitioner' && (
-              <Text size="sm">Assigned to {formatHumanName(owner.name?.[0])}</Text>
+              <Text size="sm">Asignado a {formatHumanName(owner.name?.[0])}</Text>
             )}
           </Stack>
         </Stack>

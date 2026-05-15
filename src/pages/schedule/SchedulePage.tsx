@@ -129,7 +129,7 @@ export function SchedulePage(): JSX.Element | null {
   const handleSelectInterval = useCallback(
     (slot: SlotInfo) => {
       if (!practitioner) {
-        showErrorNotification("Can't create visit without associated Practitioner");
+        showErrorNotification('No es posible crear una visita sin un Profesional asociado');
         return;
       }
 
@@ -142,7 +142,7 @@ export function SchedulePage(): JSX.Element | null {
   const handleSelectSlot = useCallback(
     (slot: Slot) => {
       if (!practitioner) {
-        showErrorNotification("Can't create visit without associated Practitioner");
+        showErrorNotification('No es posible crear una visita sin un Profesional asociado');
         return;
       }
 
@@ -178,7 +178,7 @@ export function SchedulePage(): JSX.Element | null {
     async (appointment: Appointment) => {
       const reference = getReferenceString(appointment);
       if (!reference) {
-        showErrorNotification("Can't navigate to unsaved appointment");
+        showErrorNotification('No es posible navegar a un turno no guardado');
         return;
       }
 
@@ -235,7 +235,7 @@ export function SchedulePage(): JSX.Element | null {
               key={schedule?.id}
               name="schedule-actor"
               targetTypes={['Practitioner']}
-              placeholder="Switch schedule..."
+              placeholder="Cambiar agenda..."
               defaultValue={schedule?.actor?.[0] as Reference<Practitioner>}
               onChange={handleActorChange}
             />
@@ -243,7 +243,7 @@ export function SchedulePage(): JSX.Element | null {
           {schedule && hasSchedulingParameters(schedule) && (
             <ActionIcon
               variant="subtle"
-              aria-label="Schedule settings"
+              aria-label="Configuración de agenda"
               onClick={() => navigate(`/Calendar/Schedule/${schedule.id}/settings`)}
             >
               <IconSettings />
@@ -280,7 +280,7 @@ export function SchedulePage(): JSX.Element | null {
         <Drawer
           opened={createAppointmentOpened}
           onClose={createAppointmentHandlers.close}
-          title="New Calendar Event"
+          title="Nuevo Evento en el Calendario"
           position="right"
           h="100%"
         >
@@ -292,7 +292,7 @@ export function SchedulePage(): JSX.Element | null {
         onClose={appointmentDetailsHandlers.close}
         title={
           <Text size="xl" fw={700}>
-            Appointment Details
+            Detalles del Turno
           </Text>
         }
         position="right"

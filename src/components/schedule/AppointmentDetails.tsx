@@ -53,7 +53,7 @@ function UpdateAppointmentForm(props: UpdateAppointmentFormProps): JSX.Element {
     <Form onSubmit={handleSubmit}>
       <Stack gap="md">
         <ResourceInput
-          label="Patient"
+          label="Paciente"
           resourceType="Patient"
           name="Patient-id"
           required={true}
@@ -61,7 +61,7 @@ function UpdateAppointmentForm(props: UpdateAppointmentFormProps): JSX.Element {
         />
 
         <Button fullWidth type="submit">
-          Update Appointment
+          Actualizar Turno
         </Button>
       </Stack>
     </Form>
@@ -97,7 +97,7 @@ export function AppointmentDetails(props: {
         color: 'yellow',
         icon: <IconAlertSquareRounded />,
         title: 'Error',
-        message: 'Patient not loaded',
+        message: 'Paciente no cargado',
       });
       return;
     }
@@ -107,7 +107,7 @@ export function AppointmentDetails(props: {
         color: 'yellow',
         icon: <IconAlertSquareRounded />,
         title: 'Error',
-        message: 'Appointment has no Practitioner participant',
+        message: 'El turno no tiene un Profesional participante',
       });
       return;
     }
@@ -117,7 +117,7 @@ export function AppointmentDetails(props: {
         color: 'yellow',
         icon: <IconAlertSquareRounded />,
         title: 'Error',
-        message: 'Please fill out required fields.',
+        message: 'Por favor complete los campos requeridos.',
       });
       return;
     }

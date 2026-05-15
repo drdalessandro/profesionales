@@ -85,7 +85,7 @@ export default function ChargeItemPanel(props: ChargeItemPanelProps): JSX.Elemen
             <CodeableConceptInput
               key={cptCodeKey}
               binding="http://www.ama-assn.org/go/cpt/vs"
-              label="CPT Code"
+              label="Código CPT"
               name="cptCode"
               path="cptCode"
               defaultValue={cptCodes}
@@ -101,7 +101,7 @@ export default function ChargeItemPanel(props: ChargeItemPanelProps): JSX.Elemen
             </Menu.Target>
             <Menu.Dropdown>
               <Menu.Item color="red" leftSection={<IconTrash size={16} />} onClick={deleteChargeItem}>
-                Delete
+                Eliminar
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
@@ -110,7 +110,7 @@ export default function ChargeItemPanel(props: ChargeItemPanelProps): JSX.Elemen
         <CodeableConceptInput
           key={modifierKey}
           binding="http://hl7.org/fhir/ValueSet/claim-modifiers"
-          label="Modifiers"
+          label="Modificadores"
           name="modifiers"
           path="modifiers"
           defaultValue={modifierExtensionValue}
@@ -121,14 +121,13 @@ export default function ChargeItemPanel(props: ChargeItemPanelProps): JSX.Elemen
           <Grid.Col span={7}>
             <Flex h="100%" direction="column" justify="flex-end" pt={4}>
               <Text size="sm" c="dimmed">
-                Price calculated from Price chart, taking into account applied modifiers and patient's selected
-                insurance plan.
+                Precio calculado según el tarifario, considerando los modificadores aplicados y el plan de seguro del paciente.
               </Text>
             </Flex>
           </Grid.Col>
           <Grid.Col span={5}>
             <Text size="sm" fw={500} mb={8}>
-              Calculated Price
+              Precio Calculado
             </Text>
             <TextInput value={price?.value ? `$${price.value.toFixed(2)}` : 'N/A'} readOnly />
           </Grid.Col>

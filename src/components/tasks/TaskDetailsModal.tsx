@@ -86,8 +86,8 @@ export const TaskDetailsModal = (): JSX.Element => {
       await medplum.updateResource(updatedTask);
       notifications.show({
         icon: <IconCircleCheck />,
-        title: 'Success',
-        message: 'Task updated',
+        title: 'Éxito',
+        message: 'Tarea actualizada',
       });
       setTask(updatedTask);
       navigate(`/Patient/${patientId}/Encounter/${encounterId}`)?.catch(console.error);
@@ -96,7 +96,7 @@ export const TaskDetailsModal = (): JSX.Element => {
         color: 'red',
         icon: <IconCircleOff />,
         title: 'Error',
-        message: 'Failed to update the task.',
+        message: 'Error al actualizar la tarea.',
       });
     }
   };
@@ -133,7 +133,7 @@ export const TaskDetailsModal = (): JSX.Element => {
                     {task?.description && <Text>{task.description}</Text>}
                     {patient?.name && (
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <Text>View Patient</Text>
+                        <Text>Ver Paciente</Text>
                         <Button variant="subtle" component={Link} to={`/Patient/${patient.id}`}>
                           {formatHumanName(patient.name?.[0])}
                         </Button>
@@ -145,7 +145,7 @@ export const TaskDetailsModal = (): JSX.Element => {
                 <ResourceInput<Practitioner>
                   name="practitioner"
                   resourceType="Practitioner"
-                  label="Assigned to"
+                  label="Asignado a"
                   defaultValue={task?.owner ? { reference: task.owner.reference } : undefined}
                   onChange={(value) => {
                     setPractitioner(value);
@@ -155,7 +155,7 @@ export const TaskDetailsModal = (): JSX.Element => {
                 <DateTimeInput
                   name="Due Date"
                   placeholder="End"
-                  label="Due Date"
+                  label="Fecha de Vencimiento"
                   defaultValue={dueDate}
                   onChange={setDueDate}
                 />
@@ -163,7 +163,7 @@ export const TaskDetailsModal = (): JSX.Element => {
                 {task?.status && (
                   <CodeInput
                     name="status"
-                    label="Status"
+                    label="Estado"
                     binding="http://hl7.org/fhir/ValueSet/task-status|4.0.1"
                     maxValues={1}
                     defaultValue={status}
@@ -179,10 +179,10 @@ export const TaskDetailsModal = (): JSX.Element => {
 
             <Grid.Col span={6} pr="md">
               <Stack gap="sm">
-                <Text>Note</Text>
-                <Text c="dimmed">Optional free form details about this task</Text>
+                <Text>Nota</Text>
+                <Text c="dimmed">Detalles opcionales de esta tarea</Text>
                 <Textarea
-                  placeholder="Add note to this task"
+                  placeholder="Agregar nota a esta tarea"
                   minRows={3}
                   value={note}
                   onChange={(event) => setNote(event.currentTarget.value)}
@@ -194,7 +194,7 @@ export const TaskDetailsModal = (): JSX.Element => {
 
         <Box className={classes.footer} h={70} p="md">
           <Button variant="filled" onClick={handleOnSubmit}>
-            Save Changes
+            Guardar Cambios
           </Button>
         </Box>
       </Stack>

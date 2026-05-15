@@ -55,7 +55,7 @@ export function TaskProperties(props: TaskPropertiesProps): React.JSX.Element {
           <CodeInput
             key={`${task?.status}-${task?.id}`}
             name="status"
-            label="Status"
+            label="Estado"
             binding="http://hl7.org/fhir/ValueSet/task-status"
             maxValues={1}
             defaultValue={task?.status}
@@ -65,14 +65,14 @@ export function TaskProperties(props: TaskPropertiesProps): React.JSX.Element {
           <DateTimeInput
             name="Due Date"
             placeholder="End"
-            label="Due Date"
+            label="Fecha de Vencimiento"
             defaultValue={dueDate}
             onChange={handleDueDateChange}
           />
 
           <Stack gap={0}>
             <Text size="sm" fw={500}>
-              Assignee
+              Responsable
             </Text>
             <ReferenceInput
               name="owner"
@@ -86,7 +86,7 @@ export function TaskProperties(props: TaskPropertiesProps): React.JSX.Element {
 
           <CodeInput
             name="priority"
-            label="Priority"
+            label="Prioridad"
             binding="http://hl7.org/fhir/ValueSet/request-priority"
             maxValues={1}
             defaultValue={task?.priority?.toString()}
@@ -95,7 +95,7 @@ export function TaskProperties(props: TaskPropertiesProps): React.JSX.Element {
 
           {task?.basedOn && task.basedOn.length > 0 ? (
             <ResourceInput
-              label="Based On"
+              label="Basado En"
               resourceType={task.basedOn[0].reference?.split('/').pop() as ResourceType}
               name="basedOn-0"
               defaultValue={task.basedOn[0]}
@@ -104,11 +104,11 @@ export function TaskProperties(props: TaskPropertiesProps): React.JSX.Element {
           ) : (
             <Stack gap={0}>
               <Text size="sm" fw={500}>
-                Based On
+                Basado En
               </Text>
               <ReferenceInput
                 name="basedOn"
-                placeholder="Select any resource..."
+                placeholder="Seleccione cualquier recurso..."
                 onChange={async (value: Reference | undefined) => {
                   if (value?.reference) {
                     const newBasedOn = [...(task?.basedOn || []), value];
@@ -124,10 +124,10 @@ export function TaskProperties(props: TaskPropertiesProps): React.JSX.Element {
 
         <Stack gap="xs" pt="md">
           <ResourceInput
-            label="Patient"
+            label="Paciente"
             resourceType="Patient"
             name="patient"
-            placeholder="Search for patient"
+            placeholder="Buscar paciente"
             defaultValue={task?.for as Reference<Patient>}
             onChange={async (patient: Patient | undefined) => {
               await handlePatientChange(patient ? createReference(patient) : undefined);
@@ -135,7 +135,7 @@ export function TaskProperties(props: TaskPropertiesProps): React.JSX.Element {
           />
 
           {task?.encounter && (
-            <ResourceInput label="Encounter" resourceType="Encounter" name="encounter" defaultValue={task.encounter} />
+            <ResourceInput label="Consulta" resourceType="Encounter" name="encounter" defaultValue={task.encounter} />
           )}
         </Stack>
       </Flex>

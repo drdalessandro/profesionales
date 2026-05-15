@@ -42,7 +42,7 @@ export function ScheduleSettings(props: { schedule: Schedule }): JSX.Element | n
     return (
       <Group>
         <Alert color="red" variant="outline">
-          No HealthcareServices found.
+          No se encontraron Servicios de Salud.
         </Alert>
       </Group>
     );
@@ -77,7 +77,7 @@ export function ScheduleSettings(props: { schedule: Schedule }): JSX.Element | n
         },
       });
       setSchedule(deepClone(updated));
-      showSuccessNotification({ message: 'Schedule updated' });
+      showSuccessNotification({ message: 'Agenda actualizada' });
       setDirty(false);
     } catch (err) {
       showErrorNotification(err);
@@ -89,15 +89,15 @@ export function ScheduleSettings(props: { schedule: Schedule }): JSX.Element | n
   return (
     <Stack gap="lg">
       <Stack gap="0">
-        <Title order={3}>Appointment Types</Title>
+        <Title order={3}>Tipos de Turnos</Title>
         <Text fs="italic" c="dimmed">
-          Choose what appointment types can be scheduled on this calendar. Learn more about{' '}
-          <DocsLink path="scheduling">configuring Scheduling</DocsLink>.
+          Elija qué tipos de turnos pueden programarse en este calendario. Más información sobre{' '}
+          <DocsLink path="scheduling">cómo configurar la Agenda</DocsLink>.
         </Text>
       </Stack>
       {services.length >= MAX_PAGE_SIZE && (
         <Alert color="yellow" variant="outline" icon={<IconAlertCircle />}>
-          HealthcareService page size reached; some rows may not have been fetched.
+          Se alcanzó el límite de Servicios de Salud; es posible que algunas filas no se hayan cargado.
         </Alert>
       )}
       <Stack gap="sm">
@@ -106,7 +106,7 @@ export function ScheduleSettings(props: { schedule: Schedule }): JSX.Element | n
           return (
             <Group key={service.id}>
               <Tooltip
-                label={'This HealthcareService does not have a SchedulingParameters extension'}
+                label={'Este Servicio de Salud no tiene la extensión SchedulingParameters'}
                 disabled={schedulable}
                 position="right"
                 refProp="rootRef"
@@ -125,10 +125,10 @@ export function ScheduleSettings(props: { schedule: Schedule }): JSX.Element | n
       </Stack>
       <Group justify="flex-end">
         <Button variant="outline" disabled={saving} component={MedplumLink} to={`/Calendar/Schedule/${schedule.id}`}>
-          {dirty ? 'Cancel' : 'Back'}
+          {dirty ? 'Cancelar' : 'Volver'}
         </Button>
         <Button disabled={!dirty} onClick={submit} loading={saving}>
-          Save Changes
+          Guardar Cambios
         </Button>
       </Group>
     </Stack>
@@ -142,7 +142,7 @@ export function ScheduleSettingsPage(): JSX.Element {
   return (
     <Document>
       <Title order={1} mb="sm">
-        Schedule Settings
+        Configuración de Agenda
         {schedule?.actor.map((actor, i) => (
           <Fragment key={actor.reference}>
             {i === 0 ? ' - ' : ', '}
@@ -151,7 +151,7 @@ export function ScheduleSettingsPage(): JSX.Element {
         ))}
       </Title>
       <AlphaBanner bdrs="md" mb="lg">
-        Medplum Scheduling is in an Alpha period and is subject to change.
+        La Agenda de Medplum se encuentra en período Alpha y puede estar sujeta a cambios.
       </AlphaBanner>
       {schedule ? <ScheduleSettings schedule={schedule} key={schedule.id} /> : <Loader />}
     </Document>

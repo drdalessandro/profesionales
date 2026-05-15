@@ -39,7 +39,7 @@ export const EncounterModal = (): JSX.Element => {
         color: 'yellow',
         icon: <IconAlertSquareRounded />,
         title: 'Error',
-        message: 'Please fill out required fields.',
+        message: 'Por favor complete todos los campos obligatorios.',
       });
       return;
     }
@@ -56,7 +56,7 @@ export const EncounterModal = (): JSX.Element => {
         appointment,
         practitioner
       );
-      showNotification({ icon: <IconCircleCheck />, title: 'Success', message: 'Encounter created' });
+      showNotification({ icon: <IconCircleCheck />, title: 'Éxito', message: 'Consulta creada' });
       navigate(`/Patient/${patient.id}/Encounter/${encounter.id}`)?.catch(console.error);
     } catch (err) {
       showNotification({ color: 'red', icon: <IconCircleOff />, title: 'Error', message: normalizeErrorString(err) });
@@ -73,7 +73,7 @@ export const EncounterModal = (): JSX.Element => {
         setIsOpen(false);
       }}
       size="60%"
-      title="New encounter"
+      title="Nueva consulta"
       styles={{ title: { fontSize: '1.125rem', fontWeight: 600 }, body: { padding: 0, height: '60vh' } }}
     >
       <Stack h="100%" justify="space-between" gap={0}>
@@ -82,7 +82,7 @@ export const EncounterModal = (): JSX.Element => {
             <Grid.Col span={6} pr="md">
               <Stack gap="md">
                 <ResourceInput
-                  label="Patient"
+                  label="Paciente"
                   resourceType="Patient"
                   name="Patient-id"
                   defaultValue={patient}
@@ -91,7 +91,7 @@ export const EncounterModal = (): JSX.Element => {
                 />
 
                 <ResourceInput
-                  label="Practitioner"
+                  label="Profesional"
                   resourceType="Practitioner"
                   name="Practitioner-id"
                   defaultValue={practitioner}
@@ -101,7 +101,7 @@ export const EncounterModal = (): JSX.Element => {
 
                 <DateTimeInput
                   name="start"
-                  label="Start Time"
+                  label="Hora de Inicio"
                   required={true}
                   onChange={(value) => {
                     setStart(new Date(value));
@@ -110,7 +110,7 @@ export const EncounterModal = (): JSX.Element => {
 
                 <DateTimeInput
                   name="end"
-                  label="End Time"
+                  label="Hora de Fin"
                   required={true}
                   onChange={(value) => {
                     setEnd(new Date(value));
@@ -119,7 +119,7 @@ export const EncounterModal = (): JSX.Element => {
 
                 <CodingInput
                   name="class"
-                  label="Class"
+                  label="Clase"
                   binding="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"
                   required={true}
                   onChange={setEncounterClass}
@@ -128,7 +128,7 @@ export const EncounterModal = (): JSX.Element => {
 
                 <CodeInput
                   name="status"
-                  label="Status"
+                  label="Estado"
                   binding="http://hl7.org/fhir/ValueSet/encounter-status|4.0.1"
                   maxValues={1}
                   required={true}
@@ -144,11 +144,10 @@ export const EncounterModal = (): JSX.Element => {
             <Grid.Col span={6}>
               <Card padding="lg" radius="md" className={classes.planDefinition}>
                 <Text size="md" fw={500} mb="xs">
-                  Apply care template
+                  Aplicar plantilla de atención
                 </Text>
                 <Text size="sm" color="dimmed" mb="lg">
-                  You can select template for new encounter. Tasks from the template will be automatically added to the
-                  encounter. Administrators can create and edit templates in the{' '}
+                  Puede seleccionar una plantilla para la nueva consulta. Las tareas de la plantilla se agregarán automáticamente. Los administradores pueden crear y editar plantillas en la{' '}
                   <Text component="a" href="#" variant="link">
                     Medplum app
                   </Text>
@@ -170,7 +169,7 @@ export const EncounterModal = (): JSX.Element => {
 
         <Box className={classes.footer} h={70} p="md">
           <Button fullWidth={false} onClick={handleCreateEncounter} loading={isLoading} disabled={isLoading}>
-            Create Encounter
+            Crear Consulta
           </Button>
         </Box>
       </Stack>

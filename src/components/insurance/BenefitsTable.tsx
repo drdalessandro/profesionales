@@ -14,13 +14,13 @@ export function BenefitsTable({ items }: { items: BenefitTableItem }): JSX.Eleme
         <Table striped withTableBorder withColumnBorders fz="sm">
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>Category</Table.Th>
-              <Table.Th>Network</Table.Th>
-              <Table.Th>Unit</Table.Th>
-              <Table.Th>Term</Table.Th>
-              <Table.Th>Type</Table.Th>
-              <Table.Th>Allowed</Table.Th>
-              <Table.Th>Used</Table.Th>
+              <Table.Th>Categoría</Table.Th>
+              <Table.Th>Red</Table.Th>
+              <Table.Th>Unidad</Table.Th>
+              <Table.Th>Período</Table.Th>
+              <Table.Th>Tipo</Table.Th>
+              <Table.Th>Permitido</Table.Th>
+              <Table.Th>Utilizado</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>

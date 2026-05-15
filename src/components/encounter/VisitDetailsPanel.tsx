@@ -65,29 +65,29 @@ export const VisitDetailsPanel = (props: VisitDetailsPanelProps): JSX.Element =>
   return (
     <Stack gap={0}>
       <Text fw={600} size="lg" mb="md">
-        Visit Details
+        Detalles de la Consulta
       </Text>
       <Card withBorder shadow="sm" p="md">
         <Stack gap="md">
           <ResourceInput
             resourceType="Practitioner"
             name="practitioner"
-            label="Practitioner"
-            placeholder="Search for practitioner"
+            label="Profesional"
+            placeholder="Buscar profesional"
             defaultValue={practitioner}
             onChange={handlePractitionerChange}
           />
 
           <DateTimeInput
             name="checkin"
-            label="Check in"
+            label="Entrada"
             defaultValue={encounter.period?.start}
             onChange={handleCheckinChange}
           />
 
           <DateTimeInput
             name="checkout"
-            label="Check out"
+            label="Salida"
             defaultValue={encounter.period?.end}
             onChange={handleCheckoutChange}
           />

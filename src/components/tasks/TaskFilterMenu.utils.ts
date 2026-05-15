@@ -26,23 +26,23 @@ export const TASK_STATUSES: Task['status'][] = [
 ];
 
 export const TASK_STATUS_LABELS: Partial<Record<Task['status'], string>> = {
-  draft: 'Draft',
-  requested: 'Requested',
-  received: 'Received',
-  accepted: 'Accepted',
-  rejected: 'Rejected',
-  ready: 'Ready',
-  'in-progress': 'In Progress',
-  'on-hold': 'On Hold',
-  failed: 'Failed',
-  completed: 'Completed',
+  draft: 'Borrador',
+  requested: 'Solicitado',
+  received: 'Recibido',
+  accepted: 'Aceptado',
+  rejected: 'Rechazado',
+  ready: 'Listo',
+  'in-progress': 'En Progreso',
+  'on-hold': 'En Espera',
+  failed: 'Fallido',
+  completed: 'Completado',
 };
 
 export const TASK_PRIORITIES: Task['priority'][] = ['routine', 'urgent', 'asap', 'stat'];
 
 export const TASK_PRIORITY_LABELS: Record<NonNullable<Task['priority']>, string> = {
-  routine: 'Routine',
-  urgent: 'Urgent',
-  asap: 'ASAP',
-  stat: 'Stat',
+  routine: 'Rutina',
+  urgent: 'Urgente',
+  asap: 'A la Brevedad',
+  stat: 'Inmediato',
 };

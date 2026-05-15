@@ -44,11 +44,11 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
       day: 'numeric',
       year: 'numeric',
     };
-    const dateStr = startDate.toLocaleDateString('en-US', options);
+    const dateStr = startDate.toLocaleDateString('es-AR', options);
 
     const timeOptions: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
-    const startTimeStr = startDate.toLocaleTimeString('en-US', timeOptions);
-    const endTimeStr = endDate.toLocaleTimeString('en-US', timeOptions);
+    const startTimeStr = startDate.toLocaleTimeString('es-AR', timeOptions);
+    const endTimeStr = endDate.toLocaleTimeString('es-AR', timeOptions);
 
     const formattedTime = `${startTimeStr} – ${endTimeStr}`;
     return [dateStr, formattedTime];
@@ -60,7 +60,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
         color: 'yellow',
         icon: <IconAlertSquareRounded />,
         title: 'Error',
-        message: 'Please fill out required fields.',
+        message: 'Por favor complete los campos requeridos.',
       });
       return;
     }
@@ -75,7 +75,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
         appointment,
         props.practitioner
       );
-      showNotification({ icon: <IconCircleCheck />, title: 'Success', message: 'Visit created' });
+      showNotification({ icon: <IconCircleCheck />, title: 'Éxito', message: 'Visita creada' });
       navigate(`/Patient/${patient.id}/Encounter/${encounter.id}`)?.catch(console.error);
     } catch (err) {
       showErrorNotification(err);
@@ -96,7 +96,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
           </Stack>
 
           <ResourceInput
-            label="Practitioner"
+            label="Profesional"
             resourceType="Practitioner"
             name="Practitioner-id"
             required={true}
@@ -105,7 +105,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
           />
 
           <ResourceInput
-            label="Patient"
+            label="Paciente"
             resourceType="Patient"
             name="Patient-id"
             required={true}
@@ -114,7 +114,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
 
           <DateTimeInput
             name="start"
-            label="Start Time"
+            label="Hora de Inicio"
             defaultValue={appointmentSlot?.start?.toISOString()}
             required={true}
             onChange={(value) => {
@@ -124,7 +124,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
 
           <DateTimeInput
             name="end"
-            label="End Time"
+            label="Hora de Fin"
             defaultValue={appointmentSlot?.end?.toISOString()}
             required={true}
             onChange={(value) => {
@@ -134,7 +134,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
 
           <CodingInput
             name="class"
-            label="Class"
+            label="Clase"
             binding="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"
             required={true}
             onChange={setEncounterClass}
@@ -144,7 +144,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
           <ResourceInput
             name="plandefinition"
             resourceType="PlanDefinition"
-            label="Care template"
+            label="Plantilla de atención"
             onChange={(value) => {
               setPlanDefinitionData(value as PlanDefinition);
             }}
@@ -155,7 +155,7 @@ export function CreateVisit(props: CreateVisitProps): JSX.Element {
         <PlanDefinitionSummary planDefinition={planDefinitionData} />
 
         <Button fullWidth mt="xl" type="submit" loading={isLoading} disabled={isLoading}>
-          <IconCirclePlus /> <Text ml="xs">Create Visit</Text>
+          <IconCirclePlus /> <Text ml="xs">Crear Visita</Text>
         </Button>
       </Flex>
     </Form>

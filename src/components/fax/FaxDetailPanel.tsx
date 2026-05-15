@@ -55,7 +55,7 @@ export function FaxDetailPanel({ fax, onFaxChange }: FaxDetailPanelProps): JSX.E
 
                 <Group gap="xs">
                   {attachment?.url && (
-                    <Tooltip label="Download" position="bottom" openDelay={500}>
+                    <Tooltip label="Descargar" position="bottom" openDelay={500}>
                       <ActionIcon
                         variant="transparent"
                         radius="xl"
@@ -67,7 +67,7 @@ export function FaxDetailPanel({ fax, onFaxChange }: FaxDetailPanelProps): JSX.E
                       </ActionIcon>
                     </Tooltip>
                   )}
-                  <Tooltip label="Assign Patient" position="bottom" openDelay={500}>
+                  <Tooltip label="Asignar Paciente" position="bottom" openDelay={500}>
                     <ActionIcon
                       variant="transparent"
                       radius="xl"
@@ -78,7 +78,7 @@ export function FaxDetailPanel({ fax, onFaxChange }: FaxDetailPanelProps): JSX.E
                       <IconUserPlus size={16} />
                     </ActionIcon>
                   </Tooltip>
-                  <Tooltip label="Forward / Re-Fax" position="bottom" openDelay={500}>
+                  <Tooltip label="Reenviar / Re-Fax" position="bottom" openDelay={500}>
                     <ActionIcon
                       variant="transparent"
                       radius="xl"
@@ -108,7 +108,7 @@ export function FaxDetailPanel({ fax, onFaxChange }: FaxDetailPanelProps): JSX.E
                 >
                   <img
                     src={attachmentUrl}
-                    alt={attachment.title ?? 'Fax attachment'}
+                    alt={attachment.title ?? 'Adjunto de fax'}
                     style={{ width: 'auto', maxWidth: '100%', height: 'auto', display: 'block' }}
                   />
                   <Box
@@ -135,7 +135,7 @@ export function FaxDetailPanel({ fax, onFaxChange }: FaxDetailPanelProps): JSX.E
                     }}
                   >
                     <iframe
-                      title="Fax attachment"
+                      title="Adjunto de fax"
                       width="100%"
                       height="100%"
                       src={attachmentUrl + '#navpanes=0'}
@@ -145,7 +145,7 @@ export function FaxDetailPanel({ fax, onFaxChange }: FaxDetailPanelProps): JSX.E
                   </Box>
                 ) : (
                   <Flex justify="center" align="center" h={300}>
-                    <Text c="dimmed">No document attached to this fax</Text>
+                    <Text c="dimmed">No hay documento adjunto a este fax</Text>
                   </Flex>
                 )}
               </Box>
@@ -219,14 +219,14 @@ function FaxMetadata({ fax, isInbound, originatingFaxNumber, patient }: FaxMetad
       }}
     >
       <Text fw={500} size="sm" c="dimmed">
-        Direction
+        Dirección
       </Text>
-      <Text size="sm">{isInbound ? 'Inbound' : 'Outbound'}</Text>
+      <Text size="sm">{isInbound ? 'Entrante' : 'Saliente'}</Text>
 
       {(recipientFaxNumber || recipientName || attnNote) && (
         <>
           <Text fw={500} size="sm" c="dimmed">
-            Recipient
+            Destinatario
           </Text>
           <Stack gap={0}>
             {recipientFaxNumber && <Text size="sm">{formatFaxNumber(recipientFaxNumber)}</Text>}
@@ -238,7 +238,7 @@ function FaxMetadata({ fax, isInbound, originatingFaxNumber, patient }: FaxMetad
       {fax.sent && (
         <>
           <Text fw={500} size="sm" c="dimmed">
-            {isInbound ? 'Received' : 'Sent'}
+            {isInbound ? 'Recibido' : 'Enviado'}
           </Text>
           <Text size="sm">{formatDateTime(fax.sent).replace(', ', ' · ')}</Text>
         </>
@@ -246,25 +246,25 @@ function FaxMetadata({ fax, isInbound, originatingFaxNumber, patient }: FaxMetad
       {originatingFaxNumber && (
         <>
           <Text fw={500} size="sm" c="dimmed">
-            Sender
+            Remitente
           </Text>
           <Text size="sm">{formatFaxNumber(originatingFaxNumber)}</Text>
         </>
       )}
       <Text fw={500} size="sm" c="dimmed">
-        Patient
+        Paciente
       </Text>
       <Text size="sm">
         {patient ? (
           <MedplumLink to={`/Patient/${patient.id}/DocumentReference`}>{getDisplayString(patient)}</MedplumLink>
         ) : (
-          'Unassigned'
+          'Sin asignar'
         )}
       </Text>
       {coverNote && (
         <>
           <Text fw={500} size="sm" c="dimmed">
-            Cover Page Note
+            Nota de Portada
           </Text>
           <Text size="sm" style={{ whiteSpace: 'pre-wrap', minWidth: 0 }}>
             {coverNote}

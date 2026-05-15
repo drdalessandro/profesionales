@@ -20,7 +20,7 @@ export const SimpleTask = ({ task }: SimpleTaskProps): JSX.Element => {
         <Text>{task.description}</Text>
         {task.focus?.reference?.startsWith('ServiceRequest/') && (
           <Button component="a" href={`/${task.focus.reference}`} target="_blank">
-            View Service Request
+            Ver Solicitud de Servicio
           </Button>
         )}
       </Stack>

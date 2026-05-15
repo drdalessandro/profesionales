@@ -45,7 +45,7 @@ export function TaskDetailPanel(props: TaskDetailPanelProps): JSX.Element | null
   if (!task) {
     return (
       <Box h="100%" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Text c="dimmed">No task selected</Text>
+        <Text c="dimmed">No hay tarea seleccionada</Text>
       </Box>
     );
   }
@@ -71,12 +71,12 @@ export function TaskDetailPanel(props: TaskDetailPanelProps): JSX.Element | null
 
   const getTabData = (): { label: string; value: string }[] => {
     const tabs = [
-      { label: 'Properties', value: 'properties' },
-      { label: 'Activity Log', value: 'activity-log' },
+      { label: 'Propiedades', value: 'properties' },
+      { label: 'Registro de Actividad', value: 'activity-log' },
     ];
 
     if (selectedPatient) {
-      tabs.push({ label: 'Patient Summary', value: 'patient-summary' });
+      tabs.push({ label: 'Resumen del Paciente', value: 'patient-summary' });
     }
 
     return tabs;

@@ -134,8 +134,8 @@ export function OrderLabsPage(props: OrderLabsPageProps): JSX.Element {
       await sendLabOrderToHealthGorilla(medplum, serviceRequest);
 
       showNotification({
-        title: 'Lab Order Submitted',
-        message: 'The lab order has been successfully submitted.',
+        title: 'Pedido de laboratorio enviado',
+        message: 'El pedido de laboratorio fue enviado exitosamente.',
         color: 'green',
       });
       onSubmitLabOrder({ ...serviceRequest, status: 'active' });
@@ -152,7 +152,7 @@ export function OrderLabsPage(props: OrderLabsPageProps): JSX.Element {
       <Container size="md">
         <Panel>
           <Stack gap="md">
-            <Input.Wrapper label="Requester" required error={createError?.validation?.requester?.message}>
+            <Input.Wrapper label="Solicitante" required error={createError?.validation?.requester?.message}>
               <ResourceInput<Practitioner>
                 resourceType="Practitioner"
                 name="Requester"
@@ -161,7 +161,7 @@ export function OrderLabsPage(props: OrderLabsPageProps): JSX.Element {
                 searchCriteria={{ identifier: `${NPI_SYSTEM}|` }}
               />
             </Input.Wrapper>
-            <Input.Wrapper label="Patient" required error={createError?.validation?.patient?.message}>
+            <Input.Wrapper label="Paciente" required error={createError?.validation?.patient?.message}>
               <ResourceInput<Patient>
                 resourceType="Patient"
                 name="patient"
@@ -178,7 +178,7 @@ export function OrderLabsPage(props: OrderLabsPageProps): JSX.Element {
               <AsyncAutocomplete<TestCoding>
                 required
                 error={createError?.validation?.selectedTests?.message}
-                label="Selected tests"
+                label="Pruebas seleccionadas"
                 disabled={!state.performingLab}
                 maxValues={10}
                 defaultValue={tests}
@@ -201,7 +201,7 @@ export function OrderLabsPage(props: OrderLabsPageProps): JSX.Element {
             </div>
             <div>
               <ValueSetAutocomplete
-                label="Diagnoses"
+                label="Diagnósticos"
                 binding="http://hl7.org/fhir/sid/icd-10-cm/vs"
                 name="diagnoses"
                 maxValues={10}
@@ -221,13 +221,13 @@ export function OrderLabsPage(props: OrderLabsPageProps): JSX.Element {
                   onChange={(newBillTo) => {
                     updateBillingInformation({ billTo: newBillTo as BillingInformation['billTo'] });
                   }}
-                  label="Bill to"
+                  label="Facturar a"
                   withAsterisk
                 >
                   <Stack gap={4}>
-                    <Radio value="patient" label="Patient" />
-                    <Radio value="insurance" label="Insurance" />
-                    <Radio value="customer-account" label="Customer" />
+                    <Radio value="patient" label="Paciente" />
+                    <Radio value="insurance" label="Obra social / Seguro" />
+                    <Radio value="customer-account" label="Cuenta del cliente" />
                   </Stack>
                 </Radio.Group>
               </div>
@@ -235,9 +235,9 @@ export function OrderLabsPage(props: OrderLabsPageProps): JSX.Element {
                 <CoverageInput patient={patient} error={createError?.validation?.billingInformation?.patientCoverage} />
               )}
             </Group>
-            <TextInput label="Order notes" onChange={(e) => setOrderNotes(e.currentTarget.value)} />
+            <TextInput label="Notas del pedido" onChange={(e) => setOrderNotes(e.currentTarget.value)} />
             <DateTimeInput
-              label="Specimen collection time"
+              label="Hora de recolección de muestra"
               name=""
               onChange={(isoDateTimeString) => {
                 setSpecimenCollectedDateTime(isoDateTimeString ? new Date(isoDateTimeString) : undefined);
@@ -245,7 +245,7 @@ export function OrderLabsPage(props: OrderLabsPageProps): JSX.Element {
             />
             <Group>
               <Button onClick={submitOrder} loading={isSubmitting} disabled={isSubmitting}>
-                Submit Order
+                Enviar pedido
               </Button>
             </Group>
           </Stack>

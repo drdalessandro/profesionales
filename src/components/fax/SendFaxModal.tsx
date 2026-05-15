@@ -64,8 +64,8 @@ export function SendFaxModal({
         notifications.show({
           color: 'yellow',
           icon: <IconCircleOff />,
-          title: 'No fax number',
-          message: 'Selected organization has no fax number. Please enter one.',
+          title: 'Sin número de fax',
+          message: 'La organización seleccionada no tiene número de fax. Por favor ingrese uno.',
         });
       }
     }
@@ -77,15 +77,15 @@ export function SendFaxModal({
         notifications.show({
           color: 'red',
           icon: <IconCircleOff />,
-          title: 'Validation Error',
-          message: 'Selected organization has no fax number. Please enter one.',
+          title: 'Error de Validación',
+          message: 'La organización seleccionada no tiene número de fax. Por favor ingrese uno.',
         });
       } else {
         notifications.show({
           color: 'red',
           icon: <IconCircleOff />,
-          title: 'Validation Error',
-          message: 'A fax number is required.',
+          title: 'Error de Validación',
+          message: 'El número de fax es obligatorio.',
         });
       }
       return;
@@ -96,8 +96,8 @@ export function SendFaxModal({
       notifications.show({
         color: 'red',
         icon: <IconCircleOff />,
-        title: 'Validation Error',
-        message: 'Fax number must have at least 10 digits',
+        title: 'Error de Validación',
+        message: 'El número de fax debe tener al menos 10 dígitos',
       });
       return;
     }
@@ -106,8 +106,8 @@ export function SendFaxModal({
       notifications.show({
         color: 'red',
         icon: <IconCircleOff />,
-        title: 'Validation Error',
-        message: 'Please select a file to fax',
+        title: 'Error de Validación',
+        message: 'Por favor seleccione un archivo para enviar por fax',
       });
       return;
     }
@@ -117,7 +117,7 @@ export function SendFaxModal({
         color: 'red',
         icon: <IconCircleOff />,
         title: 'Error',
-        message: 'Invalid practitioner profile',
+        message: 'Perfil de profesional inválido',
       });
       return;
     }
@@ -187,7 +187,7 @@ export function SendFaxModal({
             color: 'red',
             icon: <IconCircleOff />,
             title: 'Error',
-            message: 'eFax integration not set up. Contact Medplum Support.',
+            message: 'La integración eFax no está configurada. Contacte el soporte de Medplum.',
           });
           return;
         }
@@ -197,7 +197,7 @@ export function SendFaxModal({
       notifications.show({
         color: 'green',
         icon: '✓',
-        title: 'Fax sent successfully',
+        title: 'Fax enviado exitosamente',
         message: '',
       });
 
@@ -232,7 +232,7 @@ export function SendFaxModal({
       opened={opened}
       onClose={handleClose}
       size="lg"
-      title="Send Fax"
+      title="Enviar Fax"
       centered
       styles={{
         body: { padding: 0 },
@@ -252,7 +252,7 @@ export function SendFaxModal({
               <>
                 <Stack gap={4}>
                   <Text size="sm" fw={500}>
-                    Document <span style={{ color: 'var(--mantine-color-red-6)' }}>*</span>
+                    Documento <span style={{ color: 'var(--mantine-color-red-6)' }}>*</span>
                   </Text>
                   <input
                     type="file"
@@ -292,7 +292,7 @@ export function SendFaxModal({
                         color={file ? 'var(--mantine-color-blue-5)' : 'var(--mantine-color-gray-5)'}
                       />
                       <Text size="sm" c={file ? undefined : 'dimmed'}>
-                        {file ? file.name : 'Drag a file here or click to browse'}
+                        {file ? file.name : 'Arrastre un archivo aquí o haga clic para explorar'}
                       </Text>
                       {!file && (
                         <Text size="xs" c="gray.5">
@@ -308,14 +308,14 @@ export function SendFaxModal({
               </>
             )}
             <TextInput
-              label="Subject (optional)"
-              placeholder="Enter subject"
+              label="Asunto (opcional)"
+              placeholder="Ingrese el asunto"
               value={subject}
               onChange={(e) => setSubject(e.currentTarget.value)}
             />
             <Textarea
-              label="Cover Page Note (optional)"
-              placeholder="Enter cover page message..."
+              label="Nota de Portada (opcional)"
+              placeholder="Ingrese el mensaje de portada..."
               value={coverNote}
               onChange={(e) => setCoverNote(e.currentTarget.value)}
               minRows={3}
@@ -329,13 +329,13 @@ export function SendFaxModal({
             <ResourceInput<Organization>
               resourceType="Organization"
               name="recipientOrg"
-              label="Recipient Organization (optional)"
-              placeholder="Search for an organization..."
+              label="Organización Destinataria (opcional)"
+              placeholder="Buscar una organización..."
               onChange={handleOrgChange}
             />
             <TextInput
-              label="Recipient Name (optional)"
-              placeholder="Enter recipient name"
+              label="Nombre del Destinatario (opcional)"
+              placeholder="Ingrese el nombre del destinatario"
               value={recipientName}
               onChange={(e) => setRecipientName(e.currentTarget.value)}
             />
@@ -343,7 +343,7 @@ export function SendFaxModal({
             <TextInput
               label={
                 <>
-                  Fax Number <span style={{ color: 'var(--mantine-color-red-6)' }}>*</span>
+                  Número de Fax <span style={{ color: 'var(--mantine-color-red-6)' }}>*</span>
                 </>
               }
               placeholder="+1 (555) 123-4567"
@@ -353,8 +353,8 @@ export function SendFaxModal({
             <ResourceInput<Patient>
               resourceType="Patient"
               name="patient"
-              label="Patient (optional)"
-              placeholder="Link to a patient..."
+              label="Paciente (opcional)"
+              placeholder="Vincular a un paciente..."
               defaultValue={defaultPatient}
               onChange={(value: Patient | undefined) => setPatient(value ? createReference(value) : undefined)}
             />
@@ -366,7 +366,7 @@ export function SendFaxModal({
 
         <Box px="lg" pb="lg">
           <Button variant="filled" w="100%" onClick={handleSend} loading={isSubmitting}>
-            Send Fax
+            Enviar Fax
           </Button>
         </Box>
       </Stack>

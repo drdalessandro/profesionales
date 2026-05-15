@@ -267,7 +267,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
       {/* Sidebar */}
       <Box className={classes.sidebar} style={{ width: sidebarOpen ? 280 : 0, opacity: sidebarOpen ? 1 : 0 }}>
         <div className={classes.sidebarHeader}>
-          <Text className={classes.sidebarTitle}>Conversations</Text>
+          <Text className={classes.sidebarTitle}>Conversaciones</Text>
           <ActionIcon variant="subtle" color="gray" onClick={() => setSidebarOpen(false)}>
             <IconLayoutSidebarLeftCollapse size={18} />
           </ActionIcon>
@@ -293,7 +293,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
             )}
           </div>
           {onAdd && (
-            <ActionIcon variant="subtle" color="gray" size="sm" onClick={onAdd} aria-label="New conversation">
+            <ActionIcon variant="subtle" color="gray" size="sm" onClick={onAdd} aria-label="Nueva conversación">
               <IconPlus size={16} />
             </ActionIcon>
           )}
@@ -306,10 +306,10 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                 <IconRobot size={32} />
               </ThemeIcon>
               <Text size="xl" fw={500} mb="sm">
-                How can I help you today?
+                ¿En qué puedo ayudarle hoy?
               </Text>
               <Text c="dimmed" size="sm" maw={400}>
-                I can help you search for patients, create resources, or answer clinical questions.
+                Puedo ayudarle a buscar pacientes, crear recursos o responder preguntas clínicas.
               </Text>
             </div>
           ) : (
@@ -354,7 +354,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                             }
                             return (
                               <Text key={tcIdx} size="xs" c="dimmed" fs="italic">
-                                Unable to parse tool call
+                                No se pudo analizar la llamada de herramienta
                               </Text>
                             );
                           })}
@@ -380,7 +380,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                           onClick={() => toggleResponse(index)}
                         >
                           <Text size="xs" fw={500} c="dimmed">
-                            Response
+                            Respuesta
                           </Text>
                           <Text size="xs" c="dimmed">
                             {isExpanded ? '▲' : '▼'}

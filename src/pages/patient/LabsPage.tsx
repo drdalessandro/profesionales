@@ -147,13 +147,13 @@ export function LabsPage(): JSX.Element {
                     className="pill-tabs"
                   >
                     <Tabs.List>
-                      <Tabs.Tab value="completed">Completed</Tabs.Tab>
-                      <Tabs.Tab value="open">Open</Tabs.Tab>
+                      <Tabs.Tab value="completed">Completados</Tabs.Tab>
+                      <Tabs.Tab value="open">Abiertos</Tabs.Tab>
                     </Tabs.List>
                   </Tabs>
                 </Group>
 
-                <Tooltip label="Order Labs" position="bottom" openDelay={500}>
+                <Tooltip label="Solicitar laboratorios" position="bottom" openDelay={500}>
                   <ActionIcon
                     radius="xl"
                     variant="filled"
@@ -225,7 +225,7 @@ export function LabsPage(): JSX.Element {
         onClose={() => setNewOrderModalOpened(false)}
         size="xl"
         centered
-        title="Order Labs"
+        title="Solicitar laboratorios"
       >
         <OrderLabsPage onSubmitLabOrder={handleNewOrderCreated} />
       </Modal>
@@ -311,7 +311,7 @@ function EmptyLabsState({ activeTab }: { activeTab: LabTab }): JSX.Element {
     <Flex direction="column" h="100%" justify="center" align="center">
       <Stack align="center" gap="md" pt="xl">
         <Text size="md" c="dimmed" fw={400}>
-          No {activeTab} labs to display.
+          No hay laboratorios {activeTab === 'open' ? 'abiertos' : 'completados'} para mostrar.
         </Text>
       </Stack>
     </Flex>

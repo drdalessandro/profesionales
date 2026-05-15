@@ -71,11 +71,11 @@ export function EncounterCoverageEligibilityModal(props: EncounterCoverageEligib
   }, [opened, patient?.id, medplum]);
 
   return (
-    <Modal opened={opened} onClose={onClose} title="Insurance" size="xl">
+    <Modal opened={opened} onClose={onClose} title="Seguro Médico" size="xl">
       {coverageLoading && <CoverageSkeleton />}
       {!coverageLoading && coverages.length === 0 && (
         <Text c="dimmed" size="sm">
-          No active coverage found for this patient.
+          No se encontró cobertura activa para este paciente.
         </Text>
       )}
       {!coverageLoading && coverages.length > 0 && patient && (
@@ -219,11 +219,11 @@ function CoverageCard(props: CoverageCardProps): JSX.Element {
               loading={checkingEligibility}
               onClick={handleCheckEligibility}
             >
-              Check Eligibility
+              Verificar Elegibilidad
             </Button>
           ) : (
             <Button size="xs" variant="light" color="gray">
-              Contact Support
+              Contactar Soporte
             </Button>
           )}
           <Badge color={getStatusColor(coverage.status)} variant="light">
@@ -233,27 +233,27 @@ function CoverageCard(props: CoverageCardProps): JSX.Element {
       </Flex>
 
       <SimpleGrid cols={2} spacing="md">
-        <DetailField label="Subscriber" value={getSubscriberText(coverage)} />
-        <DetailField label="Type" value={getCoverageType(coverage)} />
-        <DetailField label="Patient ID" value={coverage.subscriberId ?? coverage.identifier?.[0]?.value ?? '—'} />
-        <DetailField label="Group Number" value={getGroupNumber(coverage)} />
+        <DetailField label="Titular" value={getSubscriberText(coverage)} />
+        <DetailField label="Tipo" value={getCoverageType(coverage)} />
+        <DetailField label="ID del Paciente" value={coverage.subscriberId ?? coverage.identifier?.[0]?.value ?? '—'} />
+        <DetailField label="Número de Grupo" value={getGroupNumber(coverage)} />
         <DetailField
-          label="Effective Date"
+          label="Fecha de Vigencia"
           value={coverage.period?.start ? formatDateTime(coverage.period.start) : '—'}
         />
-        <DetailField label="End Date" value={coverage.period?.end ? formatDateTime(coverage.period.end) : '—'} />
+        <DetailField label="Fecha de Fin" value={coverage.period?.end ? formatDateTime(coverage.period.end) : '—'} />
       </SimpleGrid>
 
       <Divider />
 
       <Box>
         <Flex justify="space-between" align="center" style={{ cursor: 'pointer' }} onClick={toggleBenefits} py={4}>
-          <Title order={5}>Plan Benefits</Title>
+          <Title order={5}>Beneficios del Plan</Title>
           <Group gap="xs">
             {benefitsLoading && <Loader size="xs" />}
             {latestRequest && (
               <Text size="xs" c="dimmed">
-                Last checked: {formatDateTime(latestRequest.created ?? latestRequest.meta?.lastUpdated ?? '')}
+                Última verificación: {formatDateTime(latestRequest.created ?? latestRequest.meta?.lastUpdated ?? '')}
               </Text>
             )}
             {benefitsOpened ? <IconChevronUp size={18} /> : <IconChevronDown size={18} />}
@@ -265,13 +265,13 @@ function CoverageCard(props: CoverageCardProps): JSX.Element {
             {!benefitsLoading && !eligibilityResponse && (
               <Text size="sm" c="dimmed">
                 {eligibilityBot
-                  ? 'No eligibility check found. Click "Check Eligibility" to run a check.'
-                  : 'No eligibility check found. Contact support to enable eligibility checks.'}
+                  ? 'No se encontró verificación de elegibilidad. Haga clic en "Verificar Elegibilidad" para realizar una verificación.'
+                  : 'No se encontró verificación de elegibilidad. Contacte soporte para habilitar las verificaciones.'}
               </Text>
             )}
             {!benefitsLoading && eligibilityResponse?.outcome === 'error' && (
               <Text size="sm" c="red">
-                {eligibilityResponse.disposition ?? 'Eligibility check returned an error.'}
+                {eligibilityResponse.disposition ?? 'La verificación de elegibilidad devolvió un error.'}
               </Text>
             )}
             {!benefitsLoading &&
@@ -281,7 +281,7 @@ function CoverageCard(props: CoverageCardProps): JSX.Element {
                 if (!items || items.length === 0) {
                   return (
                     <Text key={i} size="sm" c="dimmed">
-                      No benefit items in the eligibility response.
+                      No hay elementos de beneficio en la respuesta de elegibilidad.
                     </Text>
                   );
                 }

@@ -21,14 +21,14 @@ interface FaxListItemProps {
 
 function getRecipientDisplay(fax: Communication, recipient: Organization | undefined): string {
   if (!fax.recipient?.[0]) {
-    return 'Unknown recipient';
+    return 'Destinatario desconocido';
   }
   const ref = fax.recipient[0];
   if (recipient?.resourceType === 'Organization' && recipient.name === 'Fax Recipient') {
     const faxNumber = recipient.contact?.[0]?.telecom?.find((t) => t.system === 'fax')?.value;
-    return faxNumber ? formatFaxNumber(faxNumber) : (ref.display ?? 'Unknown recipient');
+    return faxNumber ? formatFaxNumber(faxNumber) : (ref.display ?? 'Destinatario desconocido');
   }
-  const display = ref.display ?? 'Unknown recipient';
+  const display = ref.display ?? 'Destinatario desconocido';
   return display && /^\d[\d\s\-+()]*$/.test(display.replace(/\s/g, '')) ? formatFaxNumber(display) : display;
 }
 
@@ -41,7 +41,7 @@ export function FaxListItem({ fax, selectedFax, activeTab, getFaxUri, hideDivide
   const firstLine =
     activeTab === 'sent' ? getRecipientDisplay(fax, recipient as Organization | undefined) : getSenderOrRecipient(fax);
 
-  const subjectLine = fax.topic?.text ?? '(No Subject)';
+  const subjectLine = fax.topic?.text ?? '(Sin Asunto)';
   const datePatientParts = [fax.sent ? formatDate(fax.sent) : null, patient ? getDisplayString(patient) : null].filter(
     Boolean
   );
@@ -89,5 +89,5 @@ function getSenderOrRecipient(fax: Communication): string {
   if (originatingFaxNumber) {
     return formatFaxNumber(originatingFaxNumber);
   }
-  return 'Unknown Sender';
+  return 'Remitente desconocido';
 }

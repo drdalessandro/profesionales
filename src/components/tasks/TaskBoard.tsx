@@ -250,8 +250,8 @@ export function TaskBoard({
                   className="pill-tabs"
                 >
                   <Tabs.List>
-                    <Tabs.Tab value="my">My Tasks</Tabs.Tab>
-                    <Tabs.Tab value="all">All Tasks</Tabs.Tab>
+                    <Tabs.Tab value="my">Mis Tareas</Tabs.Tab>
+                    <Tabs.Tab value="all">Todas las Tareas</Tabs.Tab>
                   </Tabs.List>
                 </Tabs>
 
@@ -264,7 +264,7 @@ export function TaskBoard({
                     onFilterChange={handleFilterChange}
                     onClearAllFilters={handleClearAllFilters}
                   />
-                  <Tooltip label="New Task" position="bottom" openDelay={500}>
+                  <Tooltip label="Nueva Tarea" position="bottom" openDelay={500}>
                     <ActionIcon
                       radius="xl"
                       variant="filled"
@@ -339,7 +339,7 @@ function EmptyTasksState(): JSX.Element {
   return (
     <Flex direction="column" h="100%" justify="center" align="center" pt="xl">
       <Text c="dimmed" fw={500}>
-        No tasks available.
+        No hay tareas disponibles.
       </Text>
     </Flex>
   );

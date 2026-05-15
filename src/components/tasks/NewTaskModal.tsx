@@ -48,8 +48,8 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
       notifications.show({
         color: 'red',
         icon: <IconCircleOff />,
-        title: 'Validation Error',
-        message: 'Task title is required',
+        title: 'Error de Validación',
+        message: 'El título de la tarea es obligatorio',
       });
       return;
     }
@@ -84,8 +84,8 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
 
       notifications.show({
         icon: <IconCircleCheck />,
-        title: 'Success',
-        message: 'Task created successfully',
+        title: 'Éxito',
+        message: 'Tarea creada exitosamente',
       });
 
       onTaskCreated?.(createdTask);
@@ -122,7 +122,7 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
       opened={opened}
       onClose={handleClose}
       size="xl"
-      title="Create New Task"
+      title="Crear Nueva Tarea"
       styles={{
         body: {
           padding: 0,
@@ -138,8 +138,8 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
                 <Box>
                   <Stack gap="sm">
                     <TextInput
-                      label="Title"
-                      placeholder="Enter task title"
+                      label="Título"
+                      placeholder="Ingrese el título de la tarea"
                       value={title}
                       onChange={(event) => setTitle(event.currentTarget.value)}
                       required
@@ -147,8 +147,8 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
                     />
 
                     <Textarea
-                      label="Description"
-                      placeholder="Enter task description (optional)"
+                      label="Descripción"
+                      placeholder="Ingrese la descripción de la tarea (opcional)"
                       value={description}
                       onChange={(event) => setDescription(event.currentTarget.value)}
                       minRows={4}
@@ -166,7 +166,7 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
                   <Stack gap="sm">
                     <CodeInput
                       name="status"
-                      label="Status"
+                      label="Estado"
                       binding="http://hl7.org/fhir/ValueSet/task-status"
                       maxValues={1}
                       defaultValue={status}
@@ -176,15 +176,15 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
 
                     <DateTimeInput
                       name="dueDate"
-                      label="Due Date"
-                      placeholder="Select due date (optional)"
+                      label="Fecha de Vencimiento"
+                      placeholder="Seleccione la fecha de vencimiento (opcional)"
                       defaultValue={dueDate}
                       onChange={setDueDate}
                     />
 
                     <CodeInput
                       name="priority"
-                      label="Priority"
+                      label="Prioridad"
                       binding="http://hl7.org/fhir/ValueSet/request-priority"
                       maxValues={1}
                       defaultValue={priority}
@@ -194,8 +194,8 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
                     <ResourceInput<Patient>
                       resourceType="Patient"
                       name="patient"
-                      label="Patient"
-                      placeholder="Select patient"
+                      label="Paciente"
+                      placeholder="Seleccione el paciente"
                       defaultValue={taskPatient}
                       onChange={(value: Patient | undefined) =>
                         setTaskPatient(value ? createReference(value) : undefined)
@@ -204,20 +204,20 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
 
                     <Box>
                       <Text size="sm" fw={500} mb="xs">
-                        Assignee
+                        Responsable
                       </Text>
                       <ReferenceInput
                         name="assignee"
                         targetTypes={['Practitioner', 'Organization']}
-                        placeholder="Select assignee (optional)"
+                        placeholder="Seleccione el responsable (opcional)"
                         onChange={(value) => setAssignee(value as Reference<Practitioner>)}
                       />
                     </Box>
 
                     <CodeableConceptInput
                       name="performerType"
-                      label="Performer Type"
-                      placeholder="Select performer type (optional)"
+                      label="Tipo de Ejecutante"
+                      placeholder="Seleccione el tipo de ejecutante (opcional)"
                       binding="http://hl7.org/fhir/ValueSet/performer-role"
                       maxValues={1}
                       onChange={(value) => setPerformerType(value)}
@@ -233,7 +233,7 @@ export function NewTaskModal(props: NewTaskModalProps): JSX.Element {
         <Stack p="md">
           <Divider />
           <Button variant="filled" w="100%" onClick={handleSubmit} loading={isSubmitting}>
-            Create Task
+            Crear Tarea
           </Button>
         </Stack>
       </Stack>

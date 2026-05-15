@@ -59,7 +59,7 @@ export function MedicationsPage(): JSX.Element {
       showNotification({
         color: 'green',
         icon: '✓',
-        title: 'Successfully synced prescriptions and medications with DoseSpot',
+        title: 'Recetas y medicamentos sincronizados exitosamente con DoseSpot',
         message: '',
       });
 
@@ -69,7 +69,7 @@ export function MedicationsPage(): JSX.Element {
     } catch (err) {
       showNotification({
         color: 'red',
-        title: 'Error syncing with DoseSpot',
+        title: 'Error al sincronizar con DoseSpot',
         message: normalizeErrorString(err),
       });
     } finally {
@@ -104,7 +104,7 @@ export function MedicationsPage(): JSX.Element {
       {hasDoseSpot && (
         <Group justify="flex-end" mb="md">
           <Tooltip
-            label="Imports and updates completed and active prescriptions as well as medication history"
+            label="Importa y actualiza recetas completadas y activas, así como el historial de medicamentos"
             multiline
             position="left-start"
             offset={8}
@@ -122,7 +122,7 @@ export function MedicationsPage(): JSX.Element {
               variant="light"
               miw={200}
             >
-              {syncing ? 'Syncing…' : 'Sync with DoseSpot'}
+              {syncing ? 'Sincronizando…' : 'Sincronizar con DoseSpot'}
             </Button>
           </Tooltip>
         </Group>
