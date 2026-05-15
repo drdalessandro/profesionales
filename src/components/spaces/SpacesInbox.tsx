@@ -230,7 +230,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
         setComponentPanelOpen(true);
       }
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
       setMessages([...currentMessages, { role: 'assistant', content: `Error: ${errorMessage}` }]);
     } finally {
       isSendingRef.current = false;
@@ -434,7 +434,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                                 <IconCode size={20} />
                               </ThemeIcon>
                               <Text size="sm" fw={600} c="violet.7">
-                                View Component
+                                Ver componente
                               </Text>
                             </Group>
                           </Paper>
@@ -472,7 +472,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                                   <IconList size={20} />
                                 </ThemeIcon>
                                 <Text size="sm" fw={600} c="violet.7">
-                                  {message.resources.length} results
+                                  {message.resources.length} resultados
                                 </Text>
                               </Group>
                             </Paper>
@@ -488,12 +488,12 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                       {streamingContent && <Markdown>{streamingContent}</Markdown>}
                       {!streamingContent && currentFhirRequest && (
                         <Text size="sm" c="dimmed" fs="italic">
-                          Executing {currentFhirRequest}...
+                          Ejecutando {currentFhirRequest}...
                         </Text>
                       )}
                       {!streamingContent && !currentFhirRequest && streamingComponentCode === undefined && (
                         <Text size="sm" c="dimmed" fs="italic">
-                          Thinking...
+                          Procesando...
                         </Text>
                       )}
                     </div>
@@ -513,7 +513,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                               <IconCode size={20} />
                             </ThemeIcon>
                             <Text size="sm" fw={600} c="violet.7">
-                              Generating component...
+                              Generando componente...
                             </Text>
                           </Group>
                         </Paper>
@@ -547,7 +547,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
         <div className={classes.resourcePanel}>
           <div className={classes.resourceHeader}>
             <Text fw={600} size="sm">
-              Results ({selectedResources.length})
+              Resultados ({selectedResources.length})
             </Text>
             <CloseButton onClick={() => setSelectedResources(undefined)} />
           </div>
@@ -582,7 +582,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                 </ActionIcon>
               )}
               <Text fw={600} size="sm">
-                Resource Details
+                Detalles del recurso
               </Text>
             </Group>
             <CloseButton
@@ -603,7 +603,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
         <div className={classes.resourcePanel}>
           <div className={classes.resourceHeader}>
             <Text fw={600} size="sm">
-              Component Preview
+              Vista previa del componente
             </Text>
             <CloseButton onClick={() => setComponentPanelOpen(false)} />
           </div>

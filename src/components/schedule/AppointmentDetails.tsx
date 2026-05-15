@@ -155,13 +155,13 @@ export function AppointmentDetails(props: {
             </MedplumLink>
           </Group>
           <div>
-            <h3>Set Up Encounter</h3>
+            <h3>Configurar Encuentro</h3>
             <Form onSubmit={handleSubmit}>
               <Stack gap="md">
                 <ResourceInput<Practitioner>
                   name="practitioner"
                   resourceType="Practitioner"
-                  label="Practitioner"
+                  label="Profesional"
                   defaultValue={practitionerRef}
                   disabled={true}
                   required={true}
@@ -169,7 +169,7 @@ export function AppointmentDetails(props: {
 
                 <CodingInput
                   name="class"
-                  label="Encounter Class"
+                  label="Clase de Encuentro"
                   binding="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"
                   required={true}
                   onChange={setEncounterClass}
@@ -179,7 +179,7 @@ export function AppointmentDetails(props: {
                 <ResourceInput<PlanDefinition>
                   name="plandefinition"
                   resourceType="PlanDefinition"
-                  label="Care template"
+                  label="Plantilla de atención"
                   onChange={setPlanDefinition}
                   required={true}
                 />
@@ -187,7 +187,7 @@ export function AppointmentDetails(props: {
                 <PlanDefinitionSummary planDefinition={planDefinition} />
 
                 <Button fullWidth type="submit" disabled={!planDefinition || !encounterClass}>
-                  Apply
+                  Aplicar
                 </Button>
               </Stack>
             </Form>

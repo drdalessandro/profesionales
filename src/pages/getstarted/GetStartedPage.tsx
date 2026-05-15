@@ -522,7 +522,7 @@ export function GetStartedPage(): JSX.Element {
                       className={classes.sectionTitle}
                       mb="xs"
                     >
-                      Schedule <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
+                      Agenda <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
                     </Text>
                     <List size="sm" spacing={2} className={classes.flexOne} c="blue">
                       <List.Item>
@@ -533,7 +533,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Scheduling a Visit
+                          Programar una Consulta
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -544,7 +544,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Setting Provider Availability
+                          Configurar Disponibilidad del Profesional
                         </Text>
                       </List.Item>
                     </List>
@@ -563,7 +563,7 @@ export function GetStartedPage(): JSX.Element {
                       className={classes.sectionTitle}
                       mb="xs"
                     >
-                      Visits <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
+                      Consultas <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
                     </Text>
                     <List size="sm" spacing={2} className={classes.flexOne} c="blue">
                       <List.Item>
@@ -574,7 +574,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Understanding Visits
+                          Comprender las Consultas
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -585,7 +585,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Documenting Visits
+                          Documentar Consultas
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -596,7 +596,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Setting Up Care Templates
+                          Configurar Plantillas de Atención
                         </Text>
                       </List.Item>
                     </List>
@@ -614,10 +614,10 @@ export function GetStartedPage(): JSX.Element {
               </ActionIcon>
               <Stack gap={0} className={classes.flexOne}>
                 <Text fw={800} size="xl">
-                  Get Help
+                  Obtener Ayuda
                 </Text>
                 <Text size="sm" className={classes.textSecondary}>
-                  Join our community for discussion, or contact our team for support.
+                  Únase a nuestra comunidad para discusiones, o contacte nuestro equipo para soporte.
                 </Text>
               </Stack>
             </Group>
@@ -628,12 +628,12 @@ export function GetStartedPage(): JSX.Element {
                     <Group gap="sm" align="center">
                       <IconBrandDiscord size={24} color="var(--icon-secondary)" />
                       <Text fw={600} size="lg">
-                        Discord Community
+                        Comunidad en Discord
                       </Text>
                     </Group>
                     <Divider />
                     <Text size="md" className={classes.textSecondary} mb="sm" style={{ flex: 1 }}>
-                      Join our active community for questions and discussions.
+                      Únase a nuestra comunidad activa para preguntas y discusiones.
                     </Text>
                   </Stack>
                   <Button
@@ -646,7 +646,7 @@ export function GetStartedPage(): JSX.Element {
                     fullWidth
                     rightSection={<IconExternalLink size={14} />}
                   >
-                    Join Medplum Discord
+                    Unirse al Discord de Medplum
                   </Button>
                 </Paper>
               </Grid.Col>
@@ -656,12 +656,12 @@ export function GetStartedPage(): JSX.Element {
                     <Group gap="sm" align="center">
                       <IconMail size={24} color="var(--icon-secondary)" />
                       <Text fw={600} size="lg">
-                        Contact Us
+                        Contáctenos
                       </Text>
                     </Group>
                     <Divider />
                     <Text size="md" className={classes.textSecondary} mb="sm" style={{ flex: 1 }}>
-                      Get in touch with product questions, feedback, or for enterprise support.
+                      Comuníquese para preguntas sobre el producto, comentarios o soporte empresarial.
                     </Text>
                   </Stack>
                   <Button
@@ -673,7 +673,7 @@ export function GetStartedPage(): JSX.Element {
                     fullWidth
                     rightSection={<IconExternalLink size={14} />}
                   >
-                    Contact Support
+                    Contactar Soporte
                   </Button>
                 </Paper>
               </Grid.Col>

@@ -49,7 +49,7 @@ export function LabsPage(): JSX.Element {
 
   const fetchOrders = useCallback(async (): Promise<void> => {
     if (!patientReference) {
-      showErrorNotification('Patient not found');
+      showErrorNotification('Paciente no encontrado');
       return;
     }
     try {

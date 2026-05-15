@@ -42,13 +42,13 @@ function getServicedDateText(request: CoverageEligibilityRequest): string {
 function RequestSection({ request }: { request: CoverageEligibilityRequest }): JSX.Element {
   return (
     <Stack gap="md">
-      <Title order={5}>Eligibility Request</Title>
+      <Title order={5}>Solicitud de Elegibilidad</Title>
       <Table>
         <Table.Tbody>
-          <DetailRow label="Created" value={formatDateTime(request.created)} />
-          <DetailRow label="Purpose" value={request.purpose?.map(formatPurpose).join(', ') ?? '—'} />
-          <DetailRow label="Serviced Date" value={getServicedDateText(request)} />
-          <DetailRow label="Insurer" value={request.insurer?.display ?? request.insurer?.reference ?? '—'} />
+          <DetailRow label="Creado" value={formatDateTime(request.created)} />
+          <DetailRow label="Propósito" value={request.purpose?.map(formatPurpose).join(', ') ?? '—'} />
+          <DetailRow label="Fecha de Servicio" value={getServicedDateText(request)} />
+          <DetailRow label="Aseguradora" value={request.insurer?.display ?? request.insurer?.reference ?? '—'} />
         </Table.Tbody>
       </Table>
     </Stack>
@@ -65,7 +65,7 @@ function ResponseSection({
   if (loading) {
     return (
       <Stack gap="md">
-        <Title order={5}>Eligibility Response</Title>
+        <Title order={5}>Respuesta de Elegibilidad</Title>
         <Stack gap="xs">
           <Skeleton height={14} width="60%" />
           <Skeleton height={14} width="80%" />
@@ -78,9 +78,9 @@ function ResponseSection({
   if (!response) {
     return (
       <Stack gap="md">
-        <Title order={5}>Eligibility Response</Title>
+        <Title order={5}>Respuesta de Elegibilidad</Title>
         <Text size="sm" c="dimmed">
-          No response received yet.
+          Aún no se recibió respuesta.
         </Text>
       </Stack>
     );
@@ -88,13 +88,13 @@ function ResponseSection({
 
   return (
     <Stack gap="md">
-      <Title order={5}>Eligibility Response</Title>
+      <Title order={5}>Respuesta de Elegibilidad</Title>
       <Table>
         <Table.Tbody>
-          <DetailRow label="Outcome" value={formatOutcome(response.outcome)} />
-          {response.disposition && <DetailRow label="Disposition" value={response.disposition} />}
-          <DetailRow label="Insurer" value={response.insurer?.display ?? response.insurer?.reference ?? '—'} />
-          <DetailRow label="Created" value={formatDateTime(response.created)} />
+          <DetailRow label="Resultado" value={formatOutcome(response.outcome)} />
+          {response.disposition && <DetailRow label="Disposición" value={response.disposition} />}
+          <DetailRow label="Aseguradora" value={response.insurer?.display ?? response.insurer?.reference ?? '—'} />
+          <DetailRow label="Creado" value={formatDateTime(response.created)} />
         </Table.Tbody>
       </Table>
       {response.insurance?.map((insurance, index) => (
@@ -117,16 +117,16 @@ function InsuranceSection({
     <Stack gap="md">
       {total > 1 && (
         <Text fw={600} size="sm">
-          Coverage {index + 1}
+          Cobertura {index + 1}
         </Text>
       )}
       <Table>
         <Table.Tbody>
           {insurance.inforce !== undefined && (
-            <DetailRow label="Coverage In Force" value={insurance.inforce ? 'Yes' : 'No'} />
+            <DetailRow label="Cobertura Vigente" value={insurance.inforce ? 'Sí' : 'No'} />
           )}
           {insurance.benefitPeriod && (
-            <DetailRow label="Benefit Period" value={formatPeriod(insurance.benefitPeriod)} />
+            <DetailRow label="Período de Beneficio" value={formatPeriod(insurance.benefitPeriod)} />
           )}
         </Table.Tbody>
       </Table>
@@ -154,14 +154,14 @@ function DetailRow({ label, value }: { label: string; value: ReactNode }): JSX.E
 function formatOutcome(outcome: string | undefined): string {
   switch (outcome) {
     case 'complete':
-      return 'Complete';
+      return 'Completo';
     case 'error':
       return 'Error';
     case 'partial':
-      return 'Partial';
+      return 'Parcial';
     case 'queued':
-      return 'Queued';
+      return 'En cola';
     default:
-      return outcome ?? 'Unknown';
+      return outcome ?? 'Desconocido';
   }
 }

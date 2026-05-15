@@ -16,7 +16,7 @@ interface EligibilityListItemProps {
 }
 
 export function EligibilityListItem({ request, isSelected, href }: EligibilityListItemProps): JSX.Element {
-  const purposes = request.purpose?.map(formatPurpose).join(', ') ?? 'Eligibility Check';
+  const purposes = request.purpose?.map(formatPurpose).join(', ') ?? 'Verificación de Elegibilidad';
 
   return (
     <MedplumLink to={href} underline="never">
