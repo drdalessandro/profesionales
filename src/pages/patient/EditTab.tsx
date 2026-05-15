@@ -13,9 +13,9 @@ import { RESOURCE_PROFILE_URLS } from '../resource/utils';
 
 const missingProfileMessage = RESOURCE_PROFILE_URLS.Patient ? (
   <>
-    Could not find the{' '}
+    No se encontró el{' '}
     <Anchor href={RESOURCE_PROFILE_URLS.Patient} target="_blank">
-      US Core Patient Profile
+      Perfil de Paciente US Core
     </Anchor>
   </>
 ) : undefined;
@@ -44,7 +44,7 @@ export function EditTab(): JSX.Element | null {
         .updateResource(newResource)
         .then(() => {
           navigate(`/Patient/${patientId}/timeline`)?.catch(console.error);
-          showNotification({ color: 'green', message: 'Success' });
+          showNotification({ color: 'green', message: 'Guardado exitosamente' });
         })
         .catch((err) => {
           setOutcome(normalizeOperationOutcome(err));

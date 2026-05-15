@@ -58,7 +58,7 @@ export const ChargeItemList = (props: ChargeItemListProps): JSX.Element => {
       chargeItemDefinition: ChargeItemDefinition | undefined
     ): Promise<void> => {
       if (!cptCode || !chargeItemDefinition) {
-        showErrorNotification('Please select both CPT code and charge item definition');
+        showErrorNotification('Por favor seleccione el código CPT y la definición del ítem de facturación');
         return;
       }
 
@@ -98,10 +98,10 @@ export const ChargeItemList = (props: ChargeItemListProps): JSX.Element => {
     <Stack gap={0}>
       <Flex justify="space-between" align="center" mb="md">
         <Text fw={600} size="lg">
-          Charge Items
+          Ítems de Facturación
         </Text>
         <Button leftSection={<IconPlus size={16} />} onClick={addChargeItem}>
-          Add Charge Item
+          Agregar Ítem de Facturación
         </Button>
       </Flex>
 
@@ -119,7 +119,7 @@ export const ChargeItemList = (props: ChargeItemListProps): JSX.Element => {
           <Card withBorder shadow="sm">
             <Flex justify="space-between" align="center">
               <Text size="lg" fw={500}>
-                Total Calculated Price to Bill
+                Precio Total Calculado a Facturar
               </Text>
               <Box>
                 <TextInput w={300} value={`$${calculateTotalPrice(chargeItems)}`} readOnly />
@@ -130,7 +130,7 @@ export const ChargeItemList = (props: ChargeItemListProps): JSX.Element => {
       ) : (
         <Card withBorder shadow="sm">
           <Stack gap="md" align="center">
-            <Text c="dimmed">No charge items available</Text>
+            <Text c="dimmed">No hay ítems de facturación disponibles</Text>
           </Stack>
         </Card>
       )}
@@ -193,27 +193,27 @@ function AddChargeItemModal({ opened, onClose, onSubmit }: AddChargeItemModalPro
   }, [onClose]);
 
   return (
-    <Modal opened={opened} onClose={handleClose} title="Add Charge Item" size="md">
+    <Modal opened={opened} onClose={handleClose} title="Agregar Ítem de Facturación" size="md">
       <Stack gap="md">
         <CodeableConceptInput
           binding="http://www.ama-assn.org/go/cpt/vs"
-          label="CPT Code"
+          label="Código CPT"
           name="cptCode"
           path="ChargeItem.code"
-          placeholder="Search for CPT code..."
+          placeholder="Buscar código CPT..."
           required
           onChange={setCptCode}
         />
 
         <Box>
           <Text size="sm" fw={500} mb={5}>
-            Charge Item Definition{' '}
+            Definición del Ítem de Facturación{' '}
             <Text span c="red">
               *
             </Text>
           </Text>
           <AsyncAutocomplete
-            placeholder="Search for charge item definition..."
+            placeholder="Buscar definición del ítem de facturación..."
             onChange={handleSelectChargeItemDefinition}
             toOption={(item: unknown) => {
               const resource = item as ChargeItemDefinition;
@@ -230,10 +230,10 @@ function AddChargeItemModal({ opened, onClose, onSubmit }: AddChargeItemModalPro
 
         <Flex justify="flex-end" gap="sm" mt="md">
           <Button variant="subtle" onClick={handleClose}>
-            Cancel
+            Cancelar
           </Button>
           <Button onClick={handleSubmit} disabled={!cptCode || !chargeItemDefinition}>
-            Add Charge Item
+            Agregar Ítem de Facturación
           </Button>
         </Flex>
       </Stack>

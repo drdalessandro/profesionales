@@ -51,7 +51,7 @@ export function AssignPatientModal({
       notifications.show({
         color: 'green',
         icon: '✓',
-        title: 'Patient assigned successfully',
+        title: 'Paciente asignado exitosamente',
         message: '',
       });
 
@@ -77,7 +77,7 @@ export function AssignPatientModal({
       notifications.show({
         color: 'green',
         icon: '✓',
-        title: 'Patient assignment removed successfully',
+        title: 'Asignación de paciente eliminada exitosamente',
         message: '',
       });
 
@@ -105,7 +105,7 @@ export function AssignPatientModal({
     <Modal
       opened={opened}
       onClose={handleClose}
-      title="Assign Patient"
+      title="Asignar Paciente"
       size="md"
       centered
       styles={{
@@ -123,15 +123,15 @@ export function AssignPatientModal({
         <Box flex={1} miw={0}>
           <Stack gap="lg" p="lg">
             <Input.Wrapper
-              label="Select Patient"
-              description="This fax will be added to the Documents in their profile"
+              label="Seleccionar Paciente"
+              description="Este fax se agregará a los Documentos de su perfil"
             >
               <Box mt="calc(var(--mantine-spacing-xs) / 2)">
                 <ResourceInput<Patient>
                   key={resourceInputKey}
                   resourceType="Patient"
                   name="patient"
-                  placeholder="Type to search patients..."
+                  placeholder="Escriba para buscar pacientes..."
                   defaultValue={defaultPatient}
                   onChange={(value: Patient | undefined) => setPatient(value ? createReference(value) : undefined)}
                 />
@@ -146,11 +146,11 @@ export function AssignPatientModal({
         <Box px="lg" pb="lg">
           <Stack gap="sm">
             <Button variant="filled" w="100%" onClick={handleAssign} loading={isSubmitting} disabled={!patient}>
-              Assign Patient
+              Asignar Paciente
             </Button>
             {defaultPatient && (
               <Button variant="outline" w="100%" onClick={handleRemovePatient} loading={isSubmitting}>
-                Remove Assigned Patient
+                Quitar Paciente Asignado
               </Button>
             )}
           </Stack>

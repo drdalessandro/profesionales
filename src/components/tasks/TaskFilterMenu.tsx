@@ -88,13 +88,13 @@ export function TaskFilterMenu(props: TaskFilterMenuProps): JSX.Element {
   return (
     <Menu shadow="md" width={200} position="bottom-start" radius="md" opened={opened} onOpen={open} onClose={close}>
       <Menu.Target>
-        <Tooltip label="Filter Tasks" position="bottom" openDelay={500} disabled={opened}>
+        <Tooltip label="Filtrar Tareas" position="bottom" openDelay={500} disabled={opened}>
           <Indicator disabled={!hasActiveFilter} color="blue" size={8} offset={5}>
             <ActionIcon
               variant="transparent"
               size={32}
               radius="xl"
-              aria-label="Filter tasks"
+              aria-label="Filtrar tareas"
               className="outline-icon-button"
               data-opened={opened || undefined}
             >
@@ -105,11 +105,11 @@ export function TaskFilterMenu(props: TaskFilterMenuProps): JSX.Element {
       </Menu.Target>
 
       <Menu.Dropdown>
-        <Menu.Label>Filter Tasks</Menu.Label>
+        <Menu.Label>Filtrar Tareas</Menu.Label>
 
         <FilterSubmenu
           icon={<IconStethoscope size={16} color="var(--mantine-color-dimmed)" />}
-          label="Status"
+          label="Estado"
           isActive={statuses.length > 0}
         >
           {TASK_STATUSES.map((taskStatus) => (
@@ -127,7 +127,7 @@ export function TaskFilterMenu(props: TaskFilterMenuProps): JSX.Element {
 
         <FilterSubmenu
           icon={<IconExclamationCircle size={16} color="var(--mantine-color-dimmed)" />}
-          label="Priority"
+          label="Prioridad"
           isActive={priorities.length > 0}
         >
           {TASK_PRIORITIES.map((taskPriority) => (
@@ -145,7 +145,7 @@ export function TaskFilterMenu(props: TaskFilterMenuProps): JSX.Element {
 
         <FilterSubmenu
           icon={<IconUserCheck size={16} color="var(--mantine-color-dimmed)" />}
-          label="Performer Type"
+          label="Tipo de Ejecutante"
           isActive={!!performerType}
         >
           {uniquePerformerTypes.length > 0 ? (
@@ -167,7 +167,7 @@ export function TaskFilterMenu(props: TaskFilterMenuProps): JSX.Element {
           ) : (
             <Menu.Item disabled>
               <Text size="sm" c="dimmed">
-                No performer types available
+                No hay tipos de ejecutante disponibles
               </Text>
             </Menu.Item>
           )}
@@ -183,7 +183,7 @@ export function TaskFilterMenu(props: TaskFilterMenuProps): JSX.Element {
                 close();
               }}
             >
-              <Text size="sm">Clear All Filters</Text>
+              <Text size="sm">Limpiar Todos los Filtros</Text>
             </Menu.Item>
           </>
         )}

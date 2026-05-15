@@ -102,11 +102,11 @@ export function CoverageRequestInbox(props: CoverageRequestInboxProps): JSX.Elem
 
   const handleCheckEligibility = async (): Promise<void> => {
     if (!eligibilityBot) {
-      showErrorNotification(new Error('To enable Insurance Eligibility please contact support.'));
+      showErrorNotification(new Error('Para habilitar la Elegibilidad de Seguro, comuníquese con soporte.'));
       return;
     }
     if (!practitionerRole) {
-      showErrorNotification(new Error('No PractitionerRole found for the assigned practitioner.'));
+      showErrorNotification(new Error('No se encontró un Rol de Profesional para el profesional asignado.'));
       return;
     }
     if (!coverage) {
@@ -178,7 +178,7 @@ export function CoverageRequestInbox(props: CoverageRequestInboxProps): JSX.Elem
               {!requestsLoading && requests.length === 0 && (
                 <Flex direction="column" justify="center" align="center" pt="xl">
                   <Text size="sm" c="dimmed">
-                    No eligibility checks found for this coverage.
+                    No se encontraron verificaciones de elegibilidad para esta cobertura.
                   </Text>
                 </Flex>
               )}
@@ -225,7 +225,7 @@ export function CoverageRequestInbox(props: CoverageRequestInboxProps): JSX.Elem
           <Flex h="100%" justify="center" align="center">
             <Stack align="center" gap="xs">
               <Text size="md" c="dimmed">
-                Select an eligibility check to view details.
+                Seleccione una verificación de elegibilidad para ver los detalles.
               </Text>
             </Stack>
           </Flex>
@@ -243,7 +243,7 @@ function NoCoverageSelected(): JSX.Element {
       <Stack align="center" gap="md">
         <IconShieldCheck size={64} color="var(--mantine-color-gray-4)" />
         <Text size="sm" c="dimmed" ta="center">
-          Select a coverage to view details.
+          Seleccione una cobertura para ver los detalles.
         </Text>
       </Stack>
     </Flex>

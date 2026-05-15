@@ -21,7 +21,7 @@ export default function ConditionModal(props: ConditionDialogProps): JSX.Element
 
   const handleSubmit = useCallback(() => {
     if (!diagnosis) {
-      showErrorNotification('Please select a diagnosis');
+      showErrorNotification('Por favor seleccione un diagnóstico');
       return;
     }
 
@@ -58,7 +58,7 @@ export default function ConditionModal(props: ConditionDialogProps): JSX.Element
       <Stack>
         <CodeableConceptInput
           binding="http://hl7.org/fhir/sid/icd-10-cm/vs/billable"
-          label="ICD-10 Code"
+          label="Código CIE-10"
           name="diagnosis"
           path="Condition.code"
           required
@@ -67,14 +67,14 @@ export default function ConditionModal(props: ConditionDialogProps): JSX.Element
 
         <CodeableConceptInput
           name="clinicalStatus"
-          label="Status"
+          label="Estado"
           path="Condition.clinicalStatus"
           binding={HTTP_HL7_ORG + '/fhir/ValueSet/condition-clinical'}
           onChange={(clinicalStatus) => setClinicalStatus(clinicalStatus)}
           required
         />
         <Group justify="flex-end" gap={4} mt="md">
-          <SubmitButton>Save</SubmitButton>
+          <SubmitButton>Guardar</SubmitButton>
         </Group>
       </Stack>
     </Form>

@@ -19,7 +19,7 @@ export const SignLockDialog = (props: SignLockDialogProps): JSX.Element => {
 
   const handleSign = (lock: boolean): void => {
     if (!authorReference) {
-      showErrorNotification('No author information found');
+      showErrorNotification('No se encontró información del autor');
       return;
     }
 
@@ -39,7 +39,7 @@ export const SignLockDialog = (props: SignLockDialogProps): JSX.Element => {
 
       <Stack gap={0}>
         <Button fullWidth leftSection={<IconLock size={18} />} onClick={() => handleSign(true)} mt="md">
-          Sign & Lock Note
+          Firmar y Bloquear Nota
         </Button>
 
         <Button
@@ -49,7 +49,7 @@ export const SignLockDialog = (props: SignLockDialogProps): JSX.Element => {
           onClick={() => handleSign(false)}
           mt="md"
         >
-          Just Sign
+          Solo Firmar
         </Button>
       </Stack>
     </Stack>

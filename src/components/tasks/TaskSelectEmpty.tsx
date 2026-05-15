@@ -19,11 +19,11 @@ export function TaskSelectEmpty(props: TaskSelectEmptyProps): JSX.Element {
           </ThemeIcon>
           <Stack align="center" gap="xs">
             <Text size="lg" fw={500} c="dimmed">
-              {notFound ? 'Task not found' : 'No task selected'}
+              {notFound ? 'Tarea no encontrada' : 'Ninguna tarea seleccionada'}
             </Text>
             {!notFound && (
               <Text size="sm" c="dimmed" ta="center">
-                Select a task from the list to view details, add notes, and manage properties
+                Seleccione una tarea de la lista para ver los detalles, agregar notas y gestionar las propiedades
               </Text>
             )}
           </Stack>

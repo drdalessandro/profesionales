@@ -154,7 +154,7 @@ export const ConditionList = (props: ConditionListProps): JSX.Element => {
     <>
       <Stack gap={0}>
         <Text fw={600} size="lg" mb="md">
-          Diagnosis
+          Diagnóstico
         </Text>
 
         <Card withBorder shadow="sm">
@@ -173,12 +173,12 @@ export const ConditionList = (props: ConditionListProps): JSX.Element => {
               ))}
 
             <Flex>
-              <Button onClick={() => setOpened(true)}>Add Diagnosis</Button>
+              <Button onClick={() => setOpened(true)}>Agregar Diagnóstico</Button>
             </Flex>
           </Stack>
         </Card>
       </Stack>
-      <Modal opened={opened} onClose={() => setOpened(false)} title={'Add Diagnosis'}>
+      <Modal opened={opened} onClose={() => setOpened(false)} title={'Agregar Diagnóstico'}>
         <ConditionModal patient={patient} encounter={encounter} onSubmit={handleConditionSubmit} />
       </Modal>
     </>

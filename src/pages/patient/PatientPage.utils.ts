@@ -63,45 +63,45 @@ export function getPatientPageTabs(
 }
 
 export const PatientPageTabs: PatientPageTabInfo[] = [
-  { id: 'timeline', url: '', label: 'Timeline' },
-  { id: 'edit', url: 'edit', label: 'Edit' },
+  { id: 'timeline', url: '', label: 'Línea de tiempo' },
+  { id: 'edit', url: 'edit', label: 'Editar' },
   {
     id: 'encounter',
     url: 'Encounter?_count=20&_fields=_lastUpdated,period,status,serviceType&_sort=-_lastUpdated&patient=%patient.id',
-    label: 'Visits',
+    label: 'Consultas',
   },
   {
     id: 'tasks',
     url: 'Task',
-    label: 'Tasks',
+    label: 'Tareas',
   },
   {
     id: 'meds',
     url: 'MedicationRequest?_fields=medication[x],intent,status&_offset=0&_sort=-_lastUpdated&patient=%patient.id',
-    label: 'Meds',
+    label: 'Medicamentos',
   },
   { id: 'dosespot', url: 'dosespot', label: 'DoseSpot' },
   { id: 'scriptsure', url: 'scriptsure', label: 'ScriptSure' },
   {
     id: 'labs',
     url: 'ServiceRequest',
-    label: 'Labs',
+    label: 'Laboratorios',
   },
   {
     id: 'devices',
     url: 'Device?_fields=manufacturer,deviceName,status,distinctIdentifier,serialNumber&_offset=0&_sort=-_lastUpdated&patient=%patient.id',
-    label: 'Devices',
+    label: 'Dispositivos',
   },
   {
     id: 'documentreference',
     url: 'DocumentReference?subject=%patient.id',
-    label: 'Documents',
+    label: 'Documentos',
   },
   {
     id: 'careplan',
     url: 'CarePlan?_fields=_lastUpdated,status,intent,category,period&_sort=-_lastUpdated&patient=%patient.id',
-    label: 'Care Plans',
+    label: 'Planes de atención',
   },
-  { id: 'message', url: 'Communication', label: 'Messages' },
-  { id: 'export', url: 'export', label: 'Export' },
+  { id: 'message', url: 'Communication', label: 'Mensajes' },
+  { id: 'export', url: 'export', label: 'Exportar' },
 ];

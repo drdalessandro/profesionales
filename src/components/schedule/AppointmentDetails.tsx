@@ -53,7 +53,7 @@ function UpdateAppointmentForm(props: UpdateAppointmentFormProps): JSX.Element {
     <Form onSubmit={handleSubmit}>
       <Stack gap="md">
         <ResourceInput
-          label="Patient"
+          label="Paciente"
           resourceType="Patient"
           name="Patient-id"
           required={true}
@@ -61,7 +61,7 @@ function UpdateAppointmentForm(props: UpdateAppointmentFormProps): JSX.Element {
         />
 
         <Button fullWidth type="submit">
-          Update Appointment
+          Actualizar Turno
         </Button>
       </Stack>
     </Form>
@@ -97,7 +97,7 @@ export function AppointmentDetails(props: {
         color: 'yellow',
         icon: <IconAlertSquareRounded />,
         title: 'Error',
-        message: 'Patient not loaded',
+        message: 'Paciente no cargado',
       });
       return;
     }
@@ -107,7 +107,7 @@ export function AppointmentDetails(props: {
         color: 'yellow',
         icon: <IconAlertSquareRounded />,
         title: 'Error',
-        message: 'Appointment has no Practitioner participant',
+        message: 'El turno no tiene un Profesional participante',
       });
       return;
     }
@@ -117,7 +117,7 @@ export function AppointmentDetails(props: {
         color: 'yellow',
         icon: <IconAlertSquareRounded />,
         title: 'Error',
-        message: 'Please fill out required fields.',
+        message: 'Por favor complete los campos requeridos.',
       });
       return;
     }
@@ -155,13 +155,13 @@ export function AppointmentDetails(props: {
             </MedplumLink>
           </Group>
           <div>
-            <h3>Set Up Encounter</h3>
+            <h3>Configurar Encuentro</h3>
             <Form onSubmit={handleSubmit}>
               <Stack gap="md">
                 <ResourceInput<Practitioner>
                   name="practitioner"
                   resourceType="Practitioner"
-                  label="Practitioner"
+                  label="Profesional"
                   defaultValue={practitionerRef}
                   disabled={true}
                   required={true}
@@ -169,7 +169,7 @@ export function AppointmentDetails(props: {
 
                 <CodingInput
                   name="class"
-                  label="Encounter Class"
+                  label="Clase de Encuentro"
                   binding="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"
                   required={true}
                   onChange={setEncounterClass}
@@ -179,7 +179,7 @@ export function AppointmentDetails(props: {
                 <ResourceInput<PlanDefinition>
                   name="plandefinition"
                   resourceType="PlanDefinition"
-                  label="Care template"
+                  label="Plantilla de atención"
                   onChange={setPlanDefinition}
                   required={true}
                 />
@@ -187,7 +187,7 @@ export function AppointmentDetails(props: {
                 <PlanDefinitionSummary planDefinition={planDefinition} />
 
                 <Button fullWidth type="submit" disabled={!planDefinition || !encounterClass}>
-                  Apply
+                  Aplicar
                 </Button>
               </Stack>
             </Form>

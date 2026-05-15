@@ -18,7 +18,7 @@ export function SignInPage(): JSX.Element {
     >
       <Logo size={32} />
       <Title order={3} py="lg">
-        Sign in to Provider
+        Iniciar sesión en el Sistema
       </Title>
     </SignInForm>
   );

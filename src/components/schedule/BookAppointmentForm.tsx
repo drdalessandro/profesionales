@@ -77,7 +77,7 @@ export function BookAppointmentForm(props: BookAppointmentFormProps): JSX.Elemen
       <Stack gap="md">
         <Text size="lg">{formatPeriod({ start: props.slot.start, end: props.slot.end })}</Text>
         <ResourceInput
-          label="Patient"
+          label="Paciente"
           resourceType="Patient"
           name="Patient-id"
           required={true}
@@ -86,7 +86,7 @@ export function BookAppointmentForm(props: BookAppointmentFormProps): JSX.Elemen
         />
 
         <Button fullWidth type="submit" loading={loading}>
-          Create Appointment
+          Crear Turno
         </Button>
       </Stack>
     </Form>

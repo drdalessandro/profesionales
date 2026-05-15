@@ -14,10 +14,10 @@ export function FaxSelectEmpty(): JSX.Element {
           </ThemeIcon>
           <Stack align="center" gap="xs">
             <Text size="lg" fw={500} c="dimmed">
-              No fax selected
+              Ningún fax seleccionado
             </Text>
             <Text size="sm" c="dimmed" ta="center">
-              Select a fax from the list to view its contents and details
+              Seleccione un fax de la lista para ver su contenido y detalles
             </Text>
           </Stack>
         </Stack>

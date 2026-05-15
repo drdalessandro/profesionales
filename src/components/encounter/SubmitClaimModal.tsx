@@ -49,14 +49,14 @@ const CoverageCard = ({ coverage, selected, onToggle }: CoverageCardProps): JSX.
     >
       <Group justify="space-between" mb={6}>
         <Text size="xs" tt="uppercase" fw={600} c="dimmed">
-          Coverage
+          Cobertura
         </Text>
         <Checkbox size="xs" checked={selected} onChange={onToggle} style={{ cursor: 'pointer' }} />
       </Group>
       <Grid gutter="xs">
         <Grid.Col span={6}>
           <Text size="sm" c="dimmed">
-            Payer
+            Aseguradora
           </Text>
           <Text size="md" fw={700}>
             {getPayerName(coverage)}
@@ -64,7 +64,7 @@ const CoverageCard = ({ coverage, selected, onToggle }: CoverageCardProps): JSX.
         </Grid.Col>
         <Grid.Col span={6}>
           <Text size="sm" c="dimmed">
-            Member ID
+            ID de Afiliado
           </Text>
           <Text size="md" fw={700}>
             {getMemberId(coverage)}
@@ -72,7 +72,7 @@ const CoverageCard = ({ coverage, selected, onToggle }: CoverageCardProps): JSX.
         </Grid.Col>
         <Grid.Col span={6}>
           <Text size="sm" c="dimmed">
-            Group number
+            Número de Grupo
           </Text>
           <Text size="md" fw={700}>
             {getGroupNumber(coverage)}
@@ -80,7 +80,7 @@ const CoverageCard = ({ coverage, selected, onToggle }: CoverageCardProps): JSX.
         </Grid.Col>
         <Grid.Col span={6}>
           <Text size="sm" c="dimmed">
-            Subscriber
+            Titular
           </Text>
           <Text size="md" fw={700}>
             {getSubscriberName(coverage)}
@@ -200,7 +200,7 @@ const ClaimReviewPanel = (props: ClaimReviewPanelProps): JSX.Element => {
       </Text>
       <Box>
         <Text size="xs" tt="uppercase" fw={600} c="dimmed" mb={8}>
-          Billing Type
+          Tipo de Facturación
         </Text>
         <Button.Group style={{ width: '100%' }}>
           <Button
@@ -210,7 +210,7 @@ const ClaimReviewPanel = (props: ClaimReviewPanelProps): JSX.Element => {
             style={{ flex: 1 }}
             disabled={insuranceCoverages.length === 0}
           >
-            Insurance pay
+            Seguro médico
           </Button>
           <Button
             size="md"
@@ -218,7 +218,7 @@ const ClaimReviewPanel = (props: ClaimReviewPanelProps): JSX.Element => {
             onClick={() => setBillingType('self-pay')}
             style={{ flex: 1 }}
           >
-            Self-pay
+            Pago particular
           </Button>
         </Button.Group>
       </Box>
@@ -227,11 +227,11 @@ const ClaimReviewPanel = (props: ClaimReviewPanelProps): JSX.Element => {
         <Box>
           <Group justify="space-between" mb={8}>
             <Text size="xs" tt="uppercase" fw={600} c="dimmed">
-              Coverage on file
+              Coberturas registradas
             </Text>
             {insuranceCoverages.length > 1 && (
               <Button variant="subtle" size="xs" onClick={toggleCoverageAll}>
-                {selectedIds.size === insuranceCoverages.length ? 'Deselect all' : 'Select all'}
+                {selectedIds.size === insuranceCoverages.length ? 'Deseleccionar todo' : 'Seleccionar todo'}
               </Button>
             )}
           </Group>
@@ -255,7 +255,7 @@ const ClaimReviewPanel = (props: ClaimReviewPanelProps): JSX.Element => {
       <Grid gutter="lg">
         <Grid.Col span={6}>
           <Text size="xs" c="dimmed" mb={4}>
-            Diagnosis
+            Diagnóstico
           </Text>
           <Text size="sm" fw={600}>
             {diagnosisText}
@@ -263,7 +263,7 @@ const ClaimReviewPanel = (props: ClaimReviewPanelProps): JSX.Element => {
         </Grid.Col>
         <Grid.Col span={6}>
           <Text size="xs" c="dimmed" mb={4}>
-            Practitioner
+            Profesional
           </Text>
           <Text size="sm" fw={600}>
             {practitionerName}
@@ -280,7 +280,7 @@ const ClaimReviewPanel = (props: ClaimReviewPanelProps): JSX.Element => {
             disabled={submitting || !canSubmit}
             onClick={handleSubmitToStedi}
           >
-            Submit to Stedi
+            Enviar a Stedi
           </Button>
         )}
         {showCandidButton !== false && (
@@ -291,7 +291,7 @@ const ClaimReviewPanel = (props: ClaimReviewPanelProps): JSX.Element => {
             disabled={!canSubmit || !!stediSubmitting}
             onClick={handleConfirm}
           >
-            Submit to Candid
+            Enviar a Candid
           </Button>
         )}
       </Group>
@@ -341,7 +341,7 @@ export const SubmitClaimModal = (props: SubmitClaimModalProps): JSX.Element => {
     !selectedIsSelfPay && insuranceCoverages.length > 0 ? 'insurance' : 'self-pay';
 
   return (
-    <Modal opened={opened} onClose={onClose} centered size="lg" padding="xl" title="Review before submitting claim">
+    <Modal opened={opened} onClose={onClose} centered size="lg" padding="xl" title="Revisar antes de enviar el reclamo">
       {opened && (
         <ClaimReviewPanel
           patient={patient}

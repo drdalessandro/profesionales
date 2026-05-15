@@ -20,7 +20,7 @@ export const TaskStatusPanel = (props: TaskStatusPanelProps): JSX.Element => {
     <Box p="md" style={{ borderTop: '1px solid #eee', margin: 0 }}>
       <Flex justify="space-between" align="center" w="100%" m={0}>
         <Flex align="center" gap={8}>
-          <Text>Task Status:</Text>
+          <Text>Estado de la Tarea:</Text>
           {enabled ? (
             <Menu position="bottom-start">
               <Menu.Target>
@@ -59,8 +59,8 @@ export const TaskStatusPanel = (props: TaskStatusPanelProps): JSX.Element => {
           )}
         </Flex>
         {enabled && (
-          <Tooltip label="Edit Task" openDelay={500}>
-            <ActionIcon onClick={onActionButtonClicked} color="gray" variant="subtle" aria-label="Edit Task" size="lg">
+          <Tooltip label="Editar Tarea" openDelay={500}>
+            <ActionIcon onClick={onActionButtonClicked} color="gray" variant="subtle" aria-label="Editar Tarea" size="lg">
               <IconPencil size={20} />
             </ActionIcon>
           </Tooltip>
@@ -71,11 +71,11 @@ export const TaskStatusPanel = (props: TaskStatusPanelProps): JSX.Element => {
 };
 
 const statuses = [
-  { value: 'completed', label: 'Completed' },
-  { value: 'ready', label: 'Ready' },
-  { value: 'in-progress', label: 'In Progress' },
-  { value: 'on-hold', label: 'On Hold' },
-  { value: 'cancelled', label: 'Cancelled' },
+  { value: 'completed', label: 'Completada' },
+  { value: 'ready', label: 'Lista' },
+  { value: 'in-progress', label: 'En Progreso' },
+  { value: 'on-hold', label: 'En Espera' },
+  { value: 'cancelled', label: 'Cancelada' },
 ];
 
 const getBadgeColor = (status: Task['status']): string => {

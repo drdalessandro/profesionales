@@ -24,7 +24,7 @@ export const ClaimSubmittedPanel = (props: ClaimSubmittedPanelProps): JSX.Elemen
         <Flex align="center" justify="space-between" gap="md">
           <Stack gap={4} miw={100}>
             <Text size="xs" c="dimmed">
-              Claim Status:
+              Estado del Reclamo:
             </Text>
             {status && (
               <Badge color={getStatusColor(status)} radius="xl" variant="filled">
@@ -34,7 +34,7 @@ export const ClaimSubmittedPanel = (props: ClaimSubmittedPanelProps): JSX.Elemen
           </Stack>
           <Box style={{ flex: 1 }}>
             <Text size="sm">
-              Claim submitted for{' '}
+              Reclamo enviado por{' '}
               <Text component="span" fw={700}>
                 ${claimAmount}
               </Text>
@@ -42,7 +42,7 @@ export const ClaimSubmittedPanel = (props: ClaimSubmittedPanelProps): JSX.Elemen
             </Text>
             {createdAt && (
               <Text size="sm" c="dimmed">
-                Submitted on {formatDateTime(createdAt)}
+                Enviado el {formatDateTime(createdAt)}
               </Text>
             )}
           </Box>
@@ -52,7 +52,7 @@ export const ClaimSubmittedPanel = (props: ClaimSubmittedPanelProps): JSX.Elemen
               rightSection={<IconExternalLink size={14} />}
               onClick={() => window.open(`${CANDID_CLAIM_BASE_URL}${candidEncounterId}`, '_blank')}
             >
-              View Claim on Candid
+              Ver Reclamo en Candid
             </Button>
           )}
         </Flex>

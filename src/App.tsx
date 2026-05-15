@@ -91,16 +91,16 @@ export function App(): JSX.Element | null {
           ? [
               {
                 links: [
-                  { icon: <IconBook2 />, label: 'Spaces', href: '/Spaces/Communication' },
+                  { icon: <IconBook2 />, label: 'Espacios', href: '/Spaces/Communication' },
                   {
                     icon: <IconUsers />,
-                    label: 'Patients',
+                    label: 'Pacientes',
                     href: '/Patient?_count=20&_fields=name,email,gender&_sort=-_lastUpdated',
                   },
-                  { icon: <IconCalendarEvent />, label: 'Schedule', href: `/Calendar/Schedule` },
+                  { icon: <IconCalendarEvent />, label: 'Agenda', href: `/Calendar/Schedule` },
                   {
                     icon: <IconMail />,
-                    label: 'Messages',
+                    label: 'Mensajes',
                     href: `/Communication?status=in-progress`,
                     notificationCount: {
                       resourceType: 'Communication',
@@ -111,7 +111,7 @@ export function App(): JSX.Element | null {
                   },
                   {
                     icon: <IconClipboardCheck />,
-                    label: 'Tasks',
+                    label: 'Tareas',
                     href: `/Task?owner=${getReferenceString(profile)}&_sort=-_lastUpdated&status=requested,ready,received,accepted,in-progress,draft`,
                     notificationCount: {
                       resourceType: 'Task',
@@ -123,20 +123,20 @@ export function App(): JSX.Element | null {
                 ],
               },
               {
-                title: 'Quick Links',
+                title: 'Accesos Rápidos',
                 links: [
                   ...(!setupDismissed
                     ? [
                         {
                           icon: <IconSettingsAutomation />,
-                          label: 'Get Started',
+                          label: 'Comenzar',
                           href: '/getstarted',
                           onDismiss: handleDismissSetup,
                         },
                       ]
                     : []),
-                  { icon: <IconUserPlus />, label: 'New Patient', href: '/onboarding' },
-                  { icon: <IconApps />, label: 'Integrations', href: '/integrations' },
+                  { icon: <IconUserPlus />, label: 'Nuevo Paciente', href: '/onboarding' },
+                  { icon: <IconApps />, label: 'Integraciones', href: '/integrations' },
                   ...(hasDoseSpot
                     ? [
                         {

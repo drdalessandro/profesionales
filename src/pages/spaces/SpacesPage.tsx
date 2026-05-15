@@ -55,10 +55,10 @@ export function SpacesPage(): JSX.Element {
             <Paper shadow="md" p="xl" radius="md" withBorder style={{ maxWidth: 420, textAlign: 'center' }}>
               <Stack align="center" gap="sm">
                 <IconRobotOff size={48} color="var(--mantine-color-gray-5)" />
-                <Title order={3}>Spaces is not available</Title>
+                <Title order={3}>Spaces no está disponible</Title>
                 <Text c="dimmed">
-                  This feature requires both <strong>Bots</strong> and <strong>AI</strong> to be enabled for your
-                  project. Contact your administrator to enable these features.
+                  Esta función requiere que tanto <strong>Bots</strong> como <strong>IA</strong> estén habilitados en su
+                  proyecto. Comuníquese con su administrador para habilitar estas funciones.
                 </Text>
               </Stack>
             </Paper>

@@ -164,13 +164,13 @@ export function FaxBoard({ faxId, activeTab, inboxUri, sentUri, query, getFaxUri
               <Flex h={64} align="center" justify="space-between" p="md">
                 <Tabs value={activeTab} onChange={handleTabChange} variant="unstyled" className="pill-tabs">
                   <Tabs.List>
-                    <Tabs.Tab value="inbox">Received</Tabs.Tab>
-                    <Tabs.Tab value="sent">Sent</Tabs.Tab>
+                    <Tabs.Tab value="inbox">Recibidos</Tabs.Tab>
+                    <Tabs.Tab value="sent">Enviados</Tabs.Tab>
                   </Tabs.List>
                 </Tabs>
 
                 <Group gap="xs">
-                  <Tooltip label="Send Fax" position="bottom" openDelay={500}>
+                  <Tooltip label="Enviar Fax" position="bottom" openDelay={500}>
                     <ActionIcon
                       radius="xl"
                       variant="filled"
@@ -229,8 +229,8 @@ export function FaxBoard({ faxId, activeTab, inboxUri, sentUri, query, getFaxUri
 
 function EmptyFaxState({ activeTab }: { activeTab: FaxTab }): JSX.Element {
   const labels: Record<FaxTab, string> = {
-    inbox: 'No faxes in your inbox.',
-    sent: 'No sent faxes.',
+    inbox: 'No hay faxes en su bandeja de entrada.',
+    sent: 'No hay faxes enviados.',
   };
 
   return (

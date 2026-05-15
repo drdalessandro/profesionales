@@ -42,7 +42,7 @@ export function ChatInput({
       <Stack gap="sm">
         <Group gap="md" wrap="nowrap" align="flex-end">
           <Textarea
-            placeholder="Ask, search, or make anything..."
+            placeholder="Preguntar, buscar o crear lo que necesite..."
             value={input}
             onChange={(e) => onInputChange(e.currentTarget.value)}
             onKeyDown={onKeyDown}
@@ -62,7 +62,7 @@ export function ChatInput({
             }}
           />
           <Button
-            aria-label="Send message"
+            aria-label="Enviar mensaje"
             radius="xl"
             size="sm"
             onClick={onSend}

@@ -17,10 +17,10 @@ export function CoverageSummary(props: CoverageSummaryProps): JSX.Element {
   const coverage = useResource(coverageRef);
 
   if (!coverage) {
-    return <Text>Loading...</Text>;
+    return <Text>Cargando...</Text>;
   }
 
-  const payorNames = (coverage.payor ?? []).map((p) => p.display ?? p.reference ?? 'Unknown Payor');
+  const payorNames = (coverage.payor ?? []).map((p) => p.display ?? p.reference ?? 'Pagador Desconocido');
   const planClass = coverage.class?.find((c) => c.type?.coding?.[0]?.code === 'plan');
   let planName: string | undefined;
   if (planClass?.name) {
@@ -44,12 +44,12 @@ export function CoverageSummary(props: CoverageSummaryProps): JSX.Element {
             ))
           ) : (
             <Title order={6} style={{ lineHeight: 1.3 }}>
-              Unknown Payor
+              Pagador Desconocido
             </Title>
           )}
         </Stack>
         <Button size="xs" variant="filled" loading={checking} onClick={onCheckEligibility} style={{ flexShrink: 0 }}>
-          Check Eligibility
+          Verificar Elegibilidad
         </Button>
       </Flex>
       {planName && (

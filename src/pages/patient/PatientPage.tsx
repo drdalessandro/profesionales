@@ -102,7 +102,7 @@ export function PatientPage(): JSX.Element {
           </div>
         </div>
       </div>
-      <Modal opened={isLabsModalOpen} onClose={handleCloseLabsModal} size="xl" centered title="Order Labs">
+      <Modal opened={isLabsModalOpen} onClose={handleCloseLabsModal} size="xl" centered title="Solicitar Laboratorio">
         <OrderLabsPage onSubmitLabOrder={handleCloseLabsModal} />
       </Modal>
     </>

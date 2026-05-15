@@ -83,10 +83,10 @@ export const EncounterHeader = (props: EncounterHeaderProps): JSX.Element => {
     if (status === 'planned') {
       return (
         <>
-          <Menu.Item onClick={() => handleStatusChange('arrived')}>Arrived</Menu.Item>
-          <Menu.Item onClick={() => handleStatusChange('in-progress')}>In Progress</Menu.Item>
-          <Menu.Item onClick={() => handleStatusChange('finished')}>Finished</Menu.Item>
-          <Menu.Item onClick={() => handleStatusChange('cancelled')}>Cancelled</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('arrived')}>Llegó</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('in-progress')}>En curso</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('finished')}>Finalizada</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('cancelled')}>Cancelada</Menu.Item>
           <Menu.Divider />
         </>
       );
@@ -95,9 +95,9 @@ export const EncounterHeader = (props: EncounterHeaderProps): JSX.Element => {
     if (status === 'arrived') {
       return (
         <>
-          <Menu.Item onClick={() => handleStatusChange('in-progress')}>In Progress</Menu.Item>
-          <Menu.Item onClick={() => handleStatusChange('finished')}>Finished</Menu.Item>
-          <Menu.Item onClick={() => handleStatusChange('cancelled')}>Cancelled</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('in-progress')}>En curso</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('finished')}>Finalizada</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('cancelled')}>Cancelada</Menu.Item>
           <Menu.Divider />
         </>
       );
@@ -106,8 +106,8 @@ export const EncounterHeader = (props: EncounterHeaderProps): JSX.Element => {
     if (status === 'in-progress') {
       return (
         <>
-          <Menu.Item onClick={() => handleStatusChange('finished')}>Finished</Menu.Item>
-          <Menu.Item onClick={() => handleStatusChange('cancelled')}>Cancelled</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('finished')}>Finalizada</Menu.Item>
+          <Menu.Item onClick={() => handleStatusChange('cancelled')}>Cancelada</Menu.Item>
         </>
       );
     }
@@ -136,7 +136,7 @@ export const EncounterHeader = (props: EncounterHeaderProps): JSX.Element => {
               leftSection={<IconShieldCheck size={16} />}
               onClick={handleCheckEligibility}
             >
-              Insurance Eligibility
+              Elegibilidad del Seguro
             </Button>
             {status === 'cancelled' || status === 'finished' ? (
               <>
@@ -199,8 +199,8 @@ export const EncounterHeader = (props: EncounterHeaderProps): JSX.Element => {
             value={activeTab}
             onChange={handleTabChange}
             data={[
-              { label: 'Note & Tasks', value: 'notes' },
-              { label: 'Details & Billing', value: 'details' },
+              { label: 'Nota y Tareas', value: 'notes' },
+              { label: 'Detalles y Facturación', value: 'details' },
             ]}
             fullWidth
             radius="md"
@@ -211,22 +211,22 @@ export const EncounterHeader = (props: EncounterHeaderProps): JSX.Element => {
 
       <Modal opened={confirmOpened} onClose={closeConfirm}>
         <Text size="lg" fw={500}>
-          Are you sure you want to cancel this encounter?
+          ¿Está seguro de que desea cancelar esta consulta?
         </Text>
         <Text size="sm" c="dimmed" mt="xs">
-          This action cannot be undone.
+          Esta acción no se puede deshacer.
         </Text>
         <Group justify="flex-end" mt="xl" gap="xs">
           <Button onClick={closeConfirm} color="red" variant="outline">
-            No, keep it
+            No, mantenerla
           </Button>
           <Button onClick={confirmStatusChange} color="red">
-            Yes, cancel it
+            Sí, cancelarla
           </Button>
         </Group>
       </Modal>
 
-      <Modal opened={signOpened} onClose={closeSign} title="Signing As">
+      <Modal opened={signOpened} onClose={closeSign} title="Firmando como">
         <SignLockDialog onSign={onConfirmSign} />
       </Modal>
 

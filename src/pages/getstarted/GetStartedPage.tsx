@@ -58,8 +58,8 @@ export function GetStartedPage(): JSX.Element {
 
       showNotification({
         color: 'green',
-        title: 'Success',
-        message: `Imported ${resourceCount} resources for patient David James Williams`,
+        title: 'Éxito',
+        message: `Se importaron ${resourceCount} recursos para el paciente David James Williams`,
       });
     } catch (error) {
       showErrorNotification(error);
@@ -79,8 +79,8 @@ export function GetStartedPage(): JSX.Element {
 
       showNotification({
         color: 'green',
-        title: 'Success',
-        message: `Imported ${resourceCount} resources for Simple Initial Visit template`,
+        title: 'Éxito',
+        message: `Se importaron ${resourceCount} recursos para la plantilla Simple Initial Visit`,
       });
     } catch (error) {
       showErrorNotification(error);
@@ -110,7 +110,7 @@ export function GetStartedPage(): JSX.Element {
         },
         { url: 'http://hl7.org/fhir/sid/icd-10-cm/vs/billable' }
       );
-      showNotification({ color: 'green', title: 'Success', message: 'ICD-10-CM Billable Codes ValueSet ready' });
+      showNotification({ color: 'green', title: 'Éxito', message: 'ValueSet de Códigos Facturables ICD-10-CM listo' });
     } catch (error) {
       showErrorNotification(error);
     } finally {
@@ -133,13 +133,10 @@ export function GetStartedPage(): JSX.Element {
         {/* Header */}
         <Box mb="6rem">
           <Title order={2} fw={800}>
-            Get Started with Medplum Provider
+            Comenzar con Medplum Provider
           </Title>
           <Text size="lg" mt=".25rem" className={classes.textSecondary}>
-            Below are our recommended first steps to get set up and familiar with the available features and workflows
-            in Provider. Please note: if you are using the free version of Provider, some services may not be
-            available—lab ordering, prescriptions, billing, and access to code systems (such as CPT and ICD-10) require
-            a paid plan.{' '}
+            A continuación encontrará los primeros pasos recomendados para familiarizarse con las funcionalidades y flujos de trabajo disponibles en Provider. Nota: si utiliza la versión gratuita de Provider, algunos servicios pueden no estar disponibles—los pedidos de laboratorio, recetas, facturación y acceso a sistemas de códigos (como CPT e ICD-10) requieren un plan de pago.{' '}
             <Text
               component="a"
               href="https://www.medplum.com/pricing"
@@ -148,13 +145,13 @@ export function GetStartedPage(): JSX.Element {
               className={classes.link}
               span
             >
-              Subscribe
+              Suscribirse
             </Text>{' '}
-            or{' '}
+            o{' '}
             <Text component="a" href="mailto:support@medplum.com" c="blue.6" className={classes.link} span>
-              contact us
+              contáctenos
             </Text>{' '}
-            to integrate these services.
+            para integrar estos servicios.
           </Text>
         </Box>
 
@@ -167,10 +164,10 @@ export function GetStartedPage(): JSX.Element {
               </ActionIcon>
               <Stack gap={0} className={classes.flexOne}>
                 <Text fw={800} size="xl">
-                  Import Sample Data
+                  Importar Datos de Ejemplo
                 </Text>
                 <Text size="sm" className={classes.textSecondary}>
-                  Add placeholder data for patients, visits, and more to practice with.
+                  Agregue datos de ejemplo para pacientes, consultas y más para practicar.
                 </Text>
               </Stack>
             </Group>
@@ -181,7 +178,7 @@ export function GetStartedPage(): JSX.Element {
                     <IconUser size={24} color="var(--icon-secondary)" />
                     <Stack gap={0}>
                       <Text size="11px" fw={500} className={classes.textLabel}>
-                        Sample Patient
+                        Paciente de Ejemplo
                       </Text>
                       <Text fw={600} size="lg">
                         David James Williams
@@ -190,7 +187,7 @@ export function GetStartedPage(): JSX.Element {
                   </Group>
                   <Divider />
                   <Text size="md" className={classes.textSecondary} mb="sm" style={{ flex: 1 }}>
-                    Includes a sample patient with demographics and basic clinical data.
+                    Incluye un paciente de ejemplo con datos demográficos e información clínica básica.
                   </Text>
                 </Stack>
                 <Button
@@ -203,7 +200,7 @@ export function GetStartedPage(): JSX.Element {
                   leftSection={<IconDownload size={14} />}
                   mt="sm"
                 >
-                  {importingPatient ? 'Importing...' : 'Import Patient'}
+                  {importingPatient ? 'Importando...' : 'Importar Paciente'}
                 </Button>
               </Paper>
               <Paper radius="md" withBorder p="lg" shadow="sm" className={classes.card}>
@@ -212,7 +209,7 @@ export function GetStartedPage(): JSX.Element {
                     <IconFileText size={24} color="var(--icon-secondary)" />
                     <Stack gap={0}>
                       <Text size="11px" fw={500} className={classes.textLabel}>
-                        Sample Care Template
+                        Plantilla de Atención de Ejemplo
                       </Text>
                       <Text fw={600} size="lg">
                         Simple Initial Visit
@@ -221,10 +218,10 @@ export function GetStartedPage(): JSX.Element {
                   </Group>
                   <Divider />
                   <Text size="md" className={classes.textSecondary} style={{ flex: 1 }}>
-                    A simple note template for a first patient visit that includes tasks and questionnaires.
+                    Una plantilla de nota simple para la primera consulta del paciente que incluye tareas y cuestionarios.
                   </Text>
                   <Text size="xs" c="dimmed" mb="sm">
-                    Note: a Care Template (aka PlanDefinition FHIR resource) is required for creating visits.
+                    Nota: se requiere una Plantilla de Atención (recurso FHIR PlanDefinition) para crear consultas.
                   </Text>
                 </Stack>
                 <Button
@@ -237,7 +234,7 @@ export function GetStartedPage(): JSX.Element {
                   leftSection={<IconDownload size={14} />}
                   mt="sm"
                 >
-                  {importingVisit ? 'Importing...' : 'Import Care Template'}
+                  {importingVisit ? 'Importando...' : 'Importar Plantilla de Atención'}
                 </Button>
               </Paper>
               <Paper radius="md" withBorder p="lg" shadow="sm" className={classes.card}>
@@ -246,7 +243,7 @@ export function GetStartedPage(): JSX.Element {
                     <IconMedicalCross size={24} color="var(--icon-secondary)" />
                     <Stack gap={0}>
                       <Text size="11px" fw={500} className={classes.textLabel}>
-                        Code System
+                        Sistema de Códigos
                       </Text>
                       <Text fw={600} size="lg">
                         ICD-10-CM Billable Codes
@@ -255,7 +252,7 @@ export function GetStartedPage(): JSX.Element {
                   </Group>
                   <Divider />
                   <Text size="md" className={classes.textSecondary} mb="sm" style={{ flex: 1 }}>
-                    Registers the ICD-10-CM billable codes ValueSet used for diagnosis code lookup.
+                    Registra el ValueSet de códigos facturables ICD-10-CM utilizado para la búsqueda de códigos diagnósticos.
                   </Text>
                 </Stack>
                 <Button
@@ -268,7 +265,7 @@ export function GetStartedPage(): JSX.Element {
                   leftSection={<IconDownload size={14} />}
                   mt="sm"
                 >
-                  {importingIcd10 ? 'Importing...' : 'Import ValueSet'}
+                  {importingIcd10 ? 'Importando...' : 'Importar ValueSet'}
                 </Button>
               </Paper>
               <Paper radius="md" withBorder p="lg" shadow="sm" className={classes.card}>
@@ -277,7 +274,7 @@ export function GetStartedPage(): JSX.Element {
                     <IconBuilding size={24} color="var(--icon-secondary)" />
                     <Stack gap={0}>
                       <Text size="11px" fw={500} className={classes.textLabel}>
-                        Practice Demo
+                        Demo de Práctica
                       </Text>
                       <Text fw={600} size="lg">
                         Full Practice Demo
@@ -286,11 +283,11 @@ export function GetStartedPage(): JSX.Element {
                   </Group>
                   <Divider />
                   <Text size="md" className={classes.textSecondary} mb="sm" style={{ flex: 1 }}>
-                    Complete dataset with patients, practitioners, and schedules.
+                    Conjunto de datos completo con pacientes, profesionales y agendas.
                   </Text>
                 </Stack>
                 <Button variant="outline" size="sm" fullWidth disabled mt="sm">
-                  Coming Soon
+                  Próximamente
                 </Button>
               </Paper>
               <Paper radius="md" withBorder p="lg" shadow="sm" className={classes.card}>
@@ -299,7 +296,7 @@ export function GetStartedPage(): JSX.Element {
                     <IconBuilding size={24} color="var(--icon-secondary)" />
                     <Stack gap={0}>
                       <Text size="11px" fw={500} className={classes.textLabel}>
-                        Organization
+                        Organización
                       </Text>
                       <Text fw={600} size="lg">
                         Sample Organization
@@ -308,11 +305,11 @@ export function GetStartedPage(): JSX.Element {
                   </Group>
                   <Divider />
                   <Text size="md" className={classes.textSecondary} mb="sm" style={{ flex: 1 }}>
-                    Sample organization data with practitioners and locations.
+                    Datos de organización de ejemplo con profesionales y ubicaciones.
                   </Text>
                 </Stack>
                 <Button variant="outline" size="sm" fullWidth disabled mt="sm">
-                  Coming Soon
+                  Próximamente
                 </Button>
               </Paper>
             </Box>
@@ -326,10 +323,10 @@ export function GetStartedPage(): JSX.Element {
               </ActionIcon>
               <Stack gap={0} className={classes.flexOne}>
                 <Text fw={800} size="xl">
-                  Integrate Your Services
+                  Integrar Sus Servicios
                 </Text>
                 <Text size="sm" className={classes.textSecondary}>
-                  Contact us to connect existing services or set up new ones.
+                  Contáctenos para conectar servicios existentes o configurar nuevos.
                 </Text>
               </Stack>
             </Group>
@@ -359,30 +356,30 @@ export function GetStartedPage(): JSX.Element {
                   <Stack gap="md" style={{ display: 'flex', justifyContent: 'center', height: '100%' }}>
                     <Box>
                       <Text size="sm" my="md">
-                        Integrate with partners for…
+                        Integre con socios para…
                       </Text>
                       <List size="sm" spacing="0">
                         <List.Item>
                           <Text span size="sm" fw={600}>
-                            Labs:
+                            Laboratorios:
                           </Text>{' '}
                           Labcorp, Quest, & Health Gorilla
                         </List.Item>
                         <List.Item>
                           <Text span size="sm" fw={600}>
-                            Pharmacies:
+                            Farmacias:
                           </Text>{' '}
                           Surescripts & DoseSpot
                         </List.Item>
                         <List.Item>
                           <Text span size="sm" fw={600}>
-                            Billing:
+                            Facturación:
                           </Text>{' '}
                           Candid Health & Stedi
                         </List.Item>
                         <List.Item>
                           <Text span size="sm" fw={600}>
-                            Utilities:
+                            Utilidades:
                           </Text>{' '}
                           eFax, OpenAI, Okta, and more
                         </List.Item>
@@ -390,7 +387,7 @@ export function GetStartedPage(): JSX.Element {
                     </Box>
                     <Box mb="sm">
                       <MedplumLink to="/integrations" c="blue" fw={500}>
-                        View All Integrations →
+                        Ver Todas las Integraciones →
                       </MedplumLink>
                     </Box>
                   </Stack>
@@ -407,10 +404,10 @@ export function GetStartedPage(): JSX.Element {
               </ActionIcon>
               <Stack gap={0} className={classes.flexOne}>
                 <Text fw={800} size="xl">
-                  View Our User Guide
+                  Ver Guía de Usuario
                 </Text>
                 <Text size="sm" className={classes.textSecondary}>
-                  Follow step-by-step documentation to get the most out of Medplum Provider.
+                  Siga la documentación paso a paso para aprovechar al máximo Medplum Provider.
                 </Text>
               </Stack>
             </Group>
@@ -430,7 +427,7 @@ export function GetStartedPage(): JSX.Element {
                       className={classes.sectionTitle}
                       mb="xs"
                     >
-                      Adding Practitioners & Data <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
+                      Agregar Profesionales y Datos <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
                     </Text>
                     <List size="md" spacing={2} className={classes.flexOne} c="blue">
                       <List.Item>
@@ -441,7 +438,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Adding Practitioners
+                          Agregar Profesionales
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -452,7 +449,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Importing Data
+                          Importar Datos
                         </Text>
                       </List.Item>
                     </List>
@@ -472,7 +469,7 @@ export function GetStartedPage(): JSX.Element {
                       className={classes.sectionTitle}
                       mb="xs"
                     >
-                      Patient Profile <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
+                      Perfil del Paciente <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
                     </Text>
                     <List size="md" spacing={2} className={classes.flexOne} c="blue">
                       <List.Item>
@@ -483,7 +480,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Registering Patients
+                          Registrar Pacientes
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -494,7 +491,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Editing Patient Demographics
+                          Editar Datos Demográficos del Paciente
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -505,7 +502,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Updating Patient Summary
+                          Actualizar Resumen del Paciente
                         </Text>
                       </List.Item>
                     </List>
@@ -525,7 +522,7 @@ export function GetStartedPage(): JSX.Element {
                       className={classes.sectionTitle}
                       mb="xs"
                     >
-                      Schedule <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
+                      Agenda <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
                     </Text>
                     <List size="sm" spacing={2} className={classes.flexOne} c="blue">
                       <List.Item>
@@ -536,7 +533,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Scheduling a Visit
+                          Programar una Consulta
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -547,7 +544,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Setting Provider Availability
+                          Configurar Disponibilidad del Profesional
                         </Text>
                       </List.Item>
                     </List>
@@ -566,7 +563,7 @@ export function GetStartedPage(): JSX.Element {
                       className={classes.sectionTitle}
                       mb="xs"
                     >
-                      Visits <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
+                      Consultas <IconArrowUpRight size={16} style={{ verticalAlign: 'middle' }} />
                     </Text>
                     <List size="sm" spacing={2} className={classes.flexOne} c="blue">
                       <List.Item>
@@ -577,7 +574,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Understanding Visits
+                          Comprender las Consultas
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -588,7 +585,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Documenting Visits
+                          Documentar Consultas
                         </Text>
                       </List.Item>
                       <List.Item>
@@ -599,7 +596,7 @@ export function GetStartedPage(): JSX.Element {
                           c="blue"
                           className={classes.link}
                         >
-                          Setting Up Care Templates
+                          Configurar Plantillas de Atención
                         </Text>
                       </List.Item>
                     </List>
@@ -617,10 +614,10 @@ export function GetStartedPage(): JSX.Element {
               </ActionIcon>
               <Stack gap={0} className={classes.flexOne}>
                 <Text fw={800} size="xl">
-                  Get Help
+                  Obtener Ayuda
                 </Text>
                 <Text size="sm" className={classes.textSecondary}>
-                  Join our community for discussion, or contact our team for support.
+                  Únase a nuestra comunidad para discusiones, o contacte nuestro equipo para soporte.
                 </Text>
               </Stack>
             </Group>
@@ -631,12 +628,12 @@ export function GetStartedPage(): JSX.Element {
                     <Group gap="sm" align="center">
                       <IconBrandDiscord size={24} color="var(--icon-secondary)" />
                       <Text fw={600} size="lg">
-                        Discord Community
+                        Comunidad en Discord
                       </Text>
                     </Group>
                     <Divider />
                     <Text size="md" className={classes.textSecondary} mb="sm" style={{ flex: 1 }}>
-                      Join our active community for questions and discussions.
+                      Únase a nuestra comunidad activa para preguntas y discusiones.
                     </Text>
                   </Stack>
                   <Button
@@ -649,7 +646,7 @@ export function GetStartedPage(): JSX.Element {
                     fullWidth
                     rightSection={<IconExternalLink size={14} />}
                   >
-                    Join Medplum Discord
+                    Unirse al Discord de Medplum
                   </Button>
                 </Paper>
               </Grid.Col>
@@ -659,12 +656,12 @@ export function GetStartedPage(): JSX.Element {
                     <Group gap="sm" align="center">
                       <IconMail size={24} color="var(--icon-secondary)" />
                       <Text fw={600} size="lg">
-                        Contact Us
+                        Contáctenos
                       </Text>
                     </Group>
                     <Divider />
                     <Text size="md" className={classes.textSecondary} mb="sm" style={{ flex: 1 }}>
-                      Get in touch with product questions, feedback, or for enterprise support.
+                      Comuníquese para preguntas sobre el producto, comentarios o soporte empresarial.
                     </Text>
                   </Stack>
                   <Button
@@ -676,7 +673,7 @@ export function GetStartedPage(): JSX.Element {
                     fullWidth
                     rightSection={<IconExternalLink size={14} />}
                   >
-                    Contact Support
+                    Contactar Soporte
                   </Button>
                 </Paper>
               </Grid.Col>

@@ -230,7 +230,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
         setComponentPanelOpen(true);
       }
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
       setMessages([...currentMessages, { role: 'assistant', content: `Error: ${errorMessage}` }]);
     } finally {
       isSendingRef.current = false;
@@ -267,7 +267,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
       {/* Sidebar */}
       <Box className={classes.sidebar} style={{ width: sidebarOpen ? 280 : 0, opacity: sidebarOpen ? 1 : 0 }}>
         <div className={classes.sidebarHeader}>
-          <Text className={classes.sidebarTitle}>Conversations</Text>
+          <Text className={classes.sidebarTitle}>Conversaciones</Text>
           <ActionIcon variant="subtle" color="gray" onClick={() => setSidebarOpen(false)}>
             <IconLayoutSidebarLeftCollapse size={18} />
           </ActionIcon>
@@ -293,7 +293,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
             )}
           </div>
           {onAdd && (
-            <ActionIcon variant="subtle" color="gray" size="sm" onClick={onAdd} aria-label="New conversation">
+            <ActionIcon variant="subtle" color="gray" size="sm" onClick={onAdd} aria-label="Nueva conversación">
               <IconPlus size={16} />
             </ActionIcon>
           )}
@@ -306,10 +306,10 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                 <IconRobot size={32} />
               </ThemeIcon>
               <Text size="xl" fw={500} mb="sm">
-                How can I help you today?
+                ¿En qué puedo ayudarle hoy?
               </Text>
               <Text c="dimmed" size="sm" maw={400}>
-                I can help you search for patients, create resources, or answer clinical questions.
+                Puedo ayudarle a buscar pacientes, crear recursos o responder preguntas clínicas.
               </Text>
             </div>
           ) : (
@@ -354,7 +354,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                             }
                             return (
                               <Text key={tcIdx} size="xs" c="dimmed" fs="italic">
-                                Unable to parse tool call
+                                No se pudo analizar la llamada de herramienta
                               </Text>
                             );
                           })}
@@ -380,7 +380,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                           onClick={() => toggleResponse(index)}
                         >
                           <Text size="xs" fw={500} c="dimmed">
-                            Response
+                            Respuesta
                           </Text>
                           <Text size="xs" c="dimmed">
                             {isExpanded ? '▲' : '▼'}
@@ -434,7 +434,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                                 <IconCode size={20} />
                               </ThemeIcon>
                               <Text size="sm" fw={600} c="violet.7">
-                                View Component
+                                Ver componente
                               </Text>
                             </Group>
                           </Paper>
@@ -472,7 +472,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                                   <IconList size={20} />
                                 </ThemeIcon>
                                 <Text size="sm" fw={600} c="violet.7">
-                                  {message.resources.length} results
+                                  {message.resources.length} resultados
                                 </Text>
                               </Group>
                             </Paper>
@@ -488,12 +488,12 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                       {streamingContent && <Markdown>{streamingContent}</Markdown>}
                       {!streamingContent && currentFhirRequest && (
                         <Text size="sm" c="dimmed" fs="italic">
-                          Executing {currentFhirRequest}...
+                          Ejecutando {currentFhirRequest}...
                         </Text>
                       )}
                       {!streamingContent && !currentFhirRequest && streamingComponentCode === undefined && (
                         <Text size="sm" c="dimmed" fs="italic">
-                          Thinking...
+                          Procesando...
                         </Text>
                       )}
                     </div>
@@ -513,7 +513,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                               <IconCode size={20} />
                             </ThemeIcon>
                             <Text size="sm" fw={600} c="violet.7">
-                              Generating component...
+                              Generando componente...
                             </Text>
                           </Group>
                         </Paper>
@@ -547,7 +547,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
         <div className={classes.resourcePanel}>
           <div className={classes.resourceHeader}>
             <Text fw={600} size="sm">
-              Results ({selectedResources.length})
+              Resultados ({selectedResources.length})
             </Text>
             <CloseButton onClick={() => setSelectedResources(undefined)} />
           </div>
@@ -582,7 +582,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
                 </ActionIcon>
               )}
               <Text fw={600} size="sm">
-                Resource Details
+                Detalles del recurso
               </Text>
             </Group>
             <CloseButton
@@ -603,7 +603,7 @@ export function SpacesInbox(props: SpaceInboxProps): JSX.Element {
         <div className={classes.resourcePanel}>
           <div className={classes.resourceHeader}>
             <Text fw={600} size="sm">
-              Component Preview
+              Vista previa del componente
             </Text>
             <CloseButton onClick={() => setComponentPanelOpen(false)} />
           </div>

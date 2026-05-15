@@ -132,17 +132,17 @@ export function TaskInputNote(props: TaskInputNoteProps): React.JSX.Element {
           <Flex justify="left" align="center" direction="row" pr="md">
             <Text size="xl" fw={600} lh={1.2}>
               {task.code?.text ?? `Task`}
-              {task?.authoredOn && ` from ${formatDate(task?.authoredOn)}`}
+              {task?.authoredOn && ` de ${formatDate(task?.authoredOn)}`}
             </Text>
           </Flex>
 
           {allowEdit && (
             <Flex align="center" gap="xs">
               {onDeleteTask && (
-                <Tooltip label="Delete Task" position="bottom" openDelay={500}>
+                <Tooltip label="Eliminar Tarea" position="bottom" openDelay={500}>
                   <ActionIcon
                     variant="transparent"
-                    aria-label="Delete Task"
+                    aria-label="Eliminar Tarea"
                     radius="xl"
                     size={32}
                     className="outline-icon-button"
@@ -153,11 +153,11 @@ export function TaskInputNote(props: TaskInputNoteProps): React.JSX.Element {
                 </Tooltip>
               )}
 
-              <Tooltip label="Mark as Completed" position="bottom" openDelay={500}>
+              <Tooltip label="Marcar como Completada" position="bottom" openDelay={500}>
                 <ActionIcon
                   variant="filled"
                   color="blue"
-                  aria-label="Mark as Completed"
+                  aria-label="Marcar como Completada"
                   radius="xl"
                   size={32}
                   onClick={handleMarkAsCompleted}
@@ -181,7 +181,7 @@ export function TaskInputNote(props: TaskInputNoteProps): React.JSX.Element {
               <>
                 <Stack gap={0}>
                   <Text size="lg" fw={600} mb="lg">
-                    Related Questionnaire
+                    Cuestionario Relacionado
                   </Text>
                   <Card withBorder shadow="sm" p="md">
                     <TaskQuestionnaireForm
@@ -197,7 +197,7 @@ export function TaskInputNote(props: TaskInputNoteProps): React.JSX.Element {
 
             <Stack gap={0}>
               <Text size="lg" fw={600} mb="md">
-                Notes
+                Notas
               </Text>
 
               {task.note?.map((note, index) => (
@@ -207,7 +207,7 @@ export function TaskInputNote(props: TaskInputNoteProps): React.JSX.Element {
               {allowEdit && (
                 <Stack gap="xs">
                   <Textarea
-                    placeholder="Add a note..."
+                    placeholder="Agregar una nota..."
                     minRows={4}
                     value={note ?? ''}
                     onChange={(e) => setNote(e.currentTarget.value)}
@@ -215,7 +215,7 @@ export function TaskInputNote(props: TaskInputNoteProps): React.JSX.Element {
                   />
                   <Flex justify="flex-end">
                     <Button type="submit" disabled={!note || note.trim() === ''} onClick={handleAddComment}>
-                      Submit
+                      Enviar
                     </Button>
                   </Flex>
                 </Stack>
@@ -227,21 +227,21 @@ export function TaskInputNote(props: TaskInputNoteProps): React.JSX.Element {
         <Modal
           opened={showDeleteModal}
           onClose={() => setShowDeleteModal(false)}
-          title="Delete Task"
+          title="Eliminar Tarea"
           size="md"
           centered
         >
           <Stack gap="md">
-            <Text>Are you sure you want to delete this task? This action cannot be undone.</Text>
+            <Text>¿Está seguro de que desea eliminar esta tarea? Esta acción no se puede deshacer.</Text>
             <Text fw={500} c="dimmed">
               Task: {getDisplayString(task)}
             </Text>
             <Flex justify="flex-end" gap="sm">
               <Button variant="outline" onClick={() => setShowDeleteModal(false)}>
-                Cancel
+                Cancelar
               </Button>
               <Button color="red" onClick={confirmDeleteTask}>
-                Delete
+                Eliminar
               </Button>
             </Flex>
           </Stack>

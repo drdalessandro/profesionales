@@ -153,8 +153,8 @@ export const SignAddendum = ({ provenances, chartNoteStatus, encounter }: SignAd
               )}
               <Text fw={500}>
                 {provenanceDisplays.length - 1 === index && chartNoteStatus === ChartNoteStatus.SignedAndLocked
-                  ? 'Signed and Locked by '
-                  : 'Signed by '}
+                  ? 'Firmado y Bloqueado por '
+                  : 'Firmado por '}
                 {display.practitionerName}
               </Text>
               <Text c="dimmed" size="sm">
@@ -171,7 +171,7 @@ export const SignAddendum = ({ provenances, chartNoteStatus, encounter }: SignAd
               <IconPencil size={20} />
               <Stack gap="xs" style={{ flex: 1 }}>
                 <Group gap="sm">
-                  <Text fw={500}>Addendum by {addendum.authorName}</Text>
+                  <Text fw={500}>Adenda por {addendum.authorName}</Text>
                   <Text c="dimmed" size="sm">
                     {addendum.timestamp}
                   </Text>
@@ -186,10 +186,10 @@ export const SignAddendum = ({ provenances, chartNoteStatus, encounter }: SignAd
         ))}
 
         <Text fw={600} mt="sm">
-          Add Addendum
+          Agregar Adenda
         </Text>
         <Textarea
-          placeholder="Add an addendum to this Visit..."
+          placeholder="Agregar una adenda a esta consulta..."
           value={addendumText}
           onChange={(e) => setAddendumText(e.target.value)}
           autosize
@@ -203,7 +203,7 @@ export const SignAddendum = ({ provenances, chartNoteStatus, encounter }: SignAd
             disabled={!addendumText.trim() || isSubmitting}
             loading={isSubmitting}
           >
-            Add Addendum
+            Agregar Adenda
           </Button>
         </Group>
       </Stack>

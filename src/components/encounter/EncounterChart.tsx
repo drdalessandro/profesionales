@@ -238,7 +238,7 @@ export const EncounterChart = (props: EncounterChartProps): JSX.Element => {
 
               {clinicalImpression && (
                 <Card withBorder shadow="sm" mt="md">
-                  <Title>Fill chart note</Title>
+                  <Title>Completar nota clínica</Title>
                   <Textarea
                     defaultValue={clinicalImpression.note?.[0]?.text}
                     value={chartNote}
